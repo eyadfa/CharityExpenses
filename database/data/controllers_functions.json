@@ -1,0 +1,79 @@
+[
+    {
+        "id": "1",
+        "controller_id": "1",
+        "name": "عام"
+    },
+    {
+        "id": "2",
+        "controller_id": "2",
+        "name": "ثوابت النظام"
+    },
+    {
+        "id": "3",
+        "controller_id": "2",
+        "name": "اعدادات النظام"
+    },
+    {
+        "id": "4",
+        "controller_id": "2",
+        "name": "النماذج الرئيسية"
+    },
+    {
+        "id": "5",
+        "controller_id": "2",
+        "name": "الروابط الفرعية"
+    },
+    {
+        "id": "6",
+        "controller_id": "2",
+        "name": "الدول"
+    },
+    {
+        "id": "7",
+        "controller_id": "2",
+        "name": "المدن"
+    },
+    {
+        "id": "8",
+        "controller_id": "3",
+        "name": "عام"
+    },
+    {
+        "id": "9",
+        "controller_id": "3",
+        "name": "الصلاحيات"
+    },
+    {
+        "id": "10",
+        "controller_id": "3",
+        "name": "الأدوار"
+    },
+    {
+        "id": "11",
+        "controller_id": "3",
+        "name": "المستخدمين"
+    },
+    {
+        "id": "12",
+        "controller_id": "3",
+        "name": "الأقسام"
+    },
+    {
+        "id": "13",
+        "controller_id": "3",
+        "name": "التنبيهات"
+    },
+
+    {
+        "id": "14",
+        "controller_id": "4",
+        "name": "المهام"
+    },
+    {
+        "id": "15",
+        "controller_id": "5",
+        "name": "المتابعات"
+    }
+]
+
