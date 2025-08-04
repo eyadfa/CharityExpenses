@@ -27,91 +27,78 @@
                                     </span>
                         </div>
 
-                        <div class="col-md-2 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="بند المصروف"/>
-                            <span v-for="error of v$.form.priority_cd.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-
                         <div class="col-md-5 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> الكمية</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
+                            <label class="required fs-5 fw-bold mb-2"> الملف</label>
+                            <file-upload max-size="5"/>
                             <span v-for="error of v$.form.address.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
                         </div>
-
-                        <div class="col-md-5 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
+                        <div class="d-flex flex-center">
+                            <button class="btn btn-primary" type="submit" @click.prevent="submit()">
+                                <span class="indicator-label">حفظ</span>
+                            </button>
+                            <button class="btn btn-light me-3" @click.prevent="$router.back()">تراجع</button>
                         </div>
-                        <div class="col-md-5 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="العملة"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
+                    </div>
+                </div>
+
+                <div class="card-body py-3">
+                    <div class="flex flex-content-center">
+                        <div class="col-md-10 d-flex justify-content-center">
+                            <div class="bg-light-primary ps-5 pt-3 pe-5 border-dashed border border-primary rounded  ">
+                                <label class="form-label fw-boldest">   عدد  السجلات :</label>
+                                <label class="form-label fw-boldest">   {{ total }}</label>
+                            </div>
                         </div>
-
-
-                        <div class="col-md-5 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-5 fv-row">
-                            <label class="required fs-5 fw-bold mb-2">المبلغ الكلي</label>
-                            <input disabled v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-
-
-                        <div class="col-md-2 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> تاريخ الصرف </label>
-                            <input v-model="form.start_date" class="form-control form-control-solid"
-                                   type="datetime-local"/>
-                            <span v-for="error of v$.form.start_date.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-                        <div class="col-md-5 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="نوع الصرف"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <label class="fs-5 fw-bold mb-2"> ملاحظات</label>
-                            <textarea v-model="form.notes" class="form-control form-control-solid" rows="3"></textarea>
-                        </div>
-
                     </div>
 
+                    <div id="print_div" class="overflow-auto">
+                        <el-table
+                            :stripe="true"
+                            :data="results"
+                            height="400"
+                            style="width: 100%">
 
-                    <div class="d-flex flex-center">
-                        <button class="btn btn-primary" type="submit" @click.prevent="submit()">
-                            <span class="indicator-label">حفظ</span>
-                        </button>
-                        <button class="btn btn-light me-3" @click.prevent="$router.back()">تراجع</button>
+                            <el-table-column align="right" label="الفريق" sortable  prop="name"  />
+                            <el-table-column align="right" label="بند المصروف" sortable  prop="name"  />
+                            <el-table-column align="right" label=" سعر الوحدة"  sortable prop="address"   />
+                            <el-table-column align="right" label=" المبلغ" sortable  prop="priority.desc_ar" />
+                            <el-table-column align="right" label=" العملة" sortable  prop="start_date" />
+                            <el-table-column align="right" label="سعر الصرف"  sortable prop="end_date" />
+                            <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="end_date" />
+                            <el-table-column align="right" label="تاريخ الصرف "  sortable prop="end_date" />
+                            <el-table-column align="right" label=" طريقة الصرف"  sortable prop="end_date" />
+                            <el-table-column align="right" label=" ملاحظات"  sortable prop="created_at" />
+                            <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_at" />
+                            <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
+                            <el-table-column fixed="right">
+                                <template #default="scope">
+                                    <router-link v-show="can('agenda_edit')" :to="{name: 'editAgenda', params: { id: scope.row.id }}" class="btn btn-primary">
+                                        <i class="far fa-edit"></i>
+                                    </router-link>
+
+                                    <button v-show="can('agenda_delete')" class="btn btn-danger" @click.prevent="_delete(scope.row.id)" >
+                                        <i class="far fa-trash-alt"/>
+                                    </button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+
+
+                        <div class="d-flex flex-center">
+                            <el-pagination
+                                :page-size="100"
+                                :total="total"
+                                style="direction: ltr"
+                                background
+                                layout="prev, pager, next"
+                                @current-change="search(1)">
+                            </el-pagination>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -127,10 +114,12 @@ import {useVuelidate} from "@vuelidate/core";
 import {required} from "@vuelidate/validators";
 import CodeSelect from "../_common/codeSelect";
 import ValidationServerErrors from "../_common/ValidationServerErrors";
+import {Files} from "@element-plus/icons-vue";
+import FileUpload from "../_common/FileUpload";
 
 export default {
-    name: "agendaForm",
-    components: {ValidationServerErrors, CodeSelect},
+    name: "importExpensesForm",
+    components: {FileUpload, Files, ValidationServerErrors, CodeSelect},
     setup() {
         return {v$: useVuelidate()}
     },
@@ -151,11 +140,11 @@ export default {
     },
     data() {
         return {
-            title: "بند جديد",
+            title: "استيراد ملف المصروفات",
             form: {},
-            edit_route: "editAgenda",
+            edit_route: "editُExpenses",
             loading: false,
-            api_url: "/api/agenda",
+            api_url: "/api/expenses",
             errors:[],
             teams:[],
         }

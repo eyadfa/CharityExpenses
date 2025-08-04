@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      title: "المصرفات"
+      title: "المصروفات"
     };
   }
 });
@@ -169,13 +169,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   },
   data: function data() {
     return {
-      title: 'الأجندة',
+      title: 'المصروفات',
       add_title: ' بند جديد',
       add_url: this.$router.resolve({
-        name: 'addAgenda'
+        name: 'addExpenses'
       }),
       form: {},
-      api_url: "/api/agenda",
+      api_url: "/api/expenses",
       loading: false,
       total: 0,
       currentPage: 1,

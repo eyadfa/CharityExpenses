@@ -58,14 +58,12 @@
 
                 </div>
                 <action-buttons
-                    :add-url="add_url.path"
-                    :add-title="add_title"
-                    add-perms="agenda_add"
+                    :show-add="false"
                     print-perms="agenda_print"
                     :print-action="print"
                     export-to-excel-perms="agenda_export_to_excel"
                     :export-to-excel-action="exportToExcel"
-                    />
+                />
 
 
 
@@ -139,9 +137,8 @@ export default {
         return {
             title: 'تقارير المدفوعات',
             add_title:' بند جديد',
-            add_url: this.$router.resolve({name:'addAgenda'}),
             form:{},
-            api_url: "/api/agenda",
+            api_url: "/api/payments",
             loading:false,
             total: 0,
             currentPage:1,

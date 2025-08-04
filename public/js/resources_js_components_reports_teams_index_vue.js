@@ -171,11 +171,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       title: 'تقارير الفرق',
       add_title: ' بند جديد',
-      add_url: this.$router.resolve({
-        name: 'addAgenda'
-      }),
       form: {},
-      api_url: "/api/agenda",
+      api_url: "/api/teams",
       loading: false,
       total: 0,
       currentPage: 1,
@@ -524,7 +521,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-sm btn-primary",
     "data-kt-menu-dismiss": "true"
   }, "بحث")])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_action_buttons, {
-    "add-url": $data.add_url.path,
+    "add-url": _ctx.add_url.path,
     "add-title": $data.add_title,
     "add-perms": "agenda_add",
     "print-perms": "agenda_print",

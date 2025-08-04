@@ -47,7 +47,7 @@ export const routes = [
     {
         name: 'codes',
         path: '/codes',
-        component: () =>  import("../components/settings/codes/index"),
+        component: () =>  import("../components/settings/codes"),
         meta: {
             gate: ["page_2"]
         }
@@ -68,7 +68,7 @@ export const routes = [
     {
         name: 'appSettings',
         path: '/settings',
-        component:() =>  import("../components/settings/settings/index"),
+        component:() =>  import("../components/settings/settings"),
         meta: {
             gate: ["page_3"]
         }
@@ -87,7 +87,7 @@ export const routes = [
     {
         name: 'cities',
         path: '/cities',
-        component: () =>  import("../components/settings/cities/index"),
+        component: () =>  import("../components/settings/cities"),
         meta: {
             gate: ["page_7"]
         }
@@ -112,7 +112,7 @@ export const routes = [
     {
         name: 'countries',
         path: '/countries',
-        component: () =>  import("../components/settings/country/index"),
+        component: () =>  import("../components/settings/country"),
         meta: {
             gate: ["page_6"]
         }
@@ -134,11 +134,11 @@ export const routes = [
         }
     },
 
- ////////////////////////////////////////////
+    ////////////////////////////////////////////
     {
         name: 'controllers',
         path: '/controllers',
-        component: () => import("../components/settings/controllers/index"),
+        component: () => import("../components/settings/controllers"),
         meta: {
             gate: ["page_4"]
         }
@@ -155,7 +155,7 @@ export const routes = [
     {
         name: 'functions',
         path: '/functions',
-        component: () =>  import("../components/settings/functions/index"),
+        component: () =>  import("../components/settings/functions"),
         meta: {
             gate: ["page_5"]
         }
@@ -180,7 +180,7 @@ export const routes = [
     {
         name: 'permissions',
         path: '/permissions',
-        component: () =>  import("../components/users_management/permissions/index"),
+        component: () =>  import("../components/users_management/permissions"),
         meta: {
             gate: ["page_9"]
         }
@@ -206,7 +206,7 @@ export const routes = [
     {
         name: 'roles',
         path: '/roles',
-        component: () =>  import("../components/users_management/roles/index"),
+        component: () =>  import("../components/users_management/roles"),
         meta: {
             gate: ["page_10"]
         }
@@ -232,7 +232,7 @@ export const routes = [
     {
         name: 'departments',
         path: '/departments',
-        component: () =>  import("../components/users_management/departments/index"),
+        component: () =>  import("../components/users_management/departments"),
         meta: {
             gate: ["page_12"]
         }
@@ -258,7 +258,7 @@ export const routes = [
     {
         name: 'users',
         path: '/users',
-        component: () =>  import("../components/users_management/users/index"),
+        component: () =>  import("../components/users_management/users"),
         meta: {
             gate: ["page_11"]
         }
@@ -292,7 +292,7 @@ export const routes = [
     {
         name: 'notifications',
         path: '/notifications',
-        component:  () =>  import("../components/users_management/notifications/index")
+        component:  () =>  import("../components/users_management/notifications")
     },
 
 
@@ -303,7 +303,7 @@ export const routes = [
     {
         name: 'agenda',
         path: '/agenda',
-        component: ()=> import("../components/agenda/index"),
+        component: ()=> import("../components/agenda"),
         meta: {
             gate: ["page_27"]
         }
@@ -324,12 +324,12 @@ export const routes = [
             gate: ["agenda_edit"]
         }
     },
- /////////////////////////////////////  Expenses :: start :://///////////////////////////////
+    /////////////////////////////////////  Expenses :: start :://///////////////////////////////
     ///////////
     {
         name: 'expenses',
         path: '/expenses',
-        component: ()=> import("../components/expenses/index"),
+        component: ()=> import("../components/expenses"),
         meta: {
             gate: ["page_27"]
         }
@@ -358,14 +358,14 @@ export const routes = [
             gate: ["expenses_edit"]
         }
     },
- /////////////////////////////////////  Expenses :: End :://///////////////////////////////
+    /////////////////////////////////////  Expenses :: End :://///////////////////////////////
 
- /////////////////////////////////////  Payments :: start :://///////////////////////////////
+    /////////////////////////////////////  Payments :: start :://///////////////////////////////
     ///////////
     {
         name: 'payments',
         path: '/payments',
-        component: ()=> import("../components/payments/index"),
+        component: ()=> import("../components/payments"),
         meta: {
             gate: ["page_27"]
         }
@@ -386,12 +386,12 @@ export const routes = [
             gate: ["payments_edit"]
         }
     },
- /////////////////////////////////////  Payments :: end :://///////////////////////////////
- /////////////////////////////////////  Reports :: start ::////////////////////////////////
+    /////////////////////////////////////  Payments :: end :://///////////////////////////////
+    /////////////////////////////////////  Reports :: start ::////////////////////////////////
     {
         name: 'reportsExpenses',
         path: '/reports/expenses',
-        component: ()=> import("../components/reports/expenses/index"),
+        component: ()=> import("../components/reports/expenses"),
         meta: {
             gate: ["page_27"]
         }
@@ -399,7 +399,7 @@ export const routes = [
     {
         name: 'reportsPayments',
         path: '/reports/payments',
-        component: ()=> import("../components/reports/payments/index"),
+        component: ()=> import("../components/reports/payments"),
         meta: {
             gate: ["page_27"]
         }
@@ -407,12 +407,12 @@ export const routes = [
     {
         name: 'teamsReports',
         path: '/reports/teams',
-        component: ()=> import("../components/reports/teams/index"),
+        component: ()=> import("../components/reports/teams"),
         meta: {
             gate: ["page_27"]
         }
     },
- /////////////////////////////////////  Reports :: end :://///////////////////////////////
+    /////////////////////////////////////  Reports :: end :://///////////////////////////////
 
 ];
 
@@ -439,7 +439,7 @@ router.beforeEach((to, from, next) => {
             if(permissions.methods.can(to.meta.gate)){
                 next();
             }else{
-               shared.alert("لا تملك صلاحية دخول هذه الصفحة")
+                shared.alert("لا تملك صلاحية دخول هذه الصفحة")
                 next({ name: 'unAuthorized' });
             }
 

@@ -7,7 +7,7 @@
         <!--begin::Brand-->
         <div id="kt_aside_logo" class="aside-logo flex-column-auto">
             <!--begin::Logo-->
-            <a href="/">
+            <a href="/public">
                 <h3 class="text-white">نظام ادارة البيانات</h3>
             </a>
             <!--end::Logo-->
@@ -112,17 +112,19 @@ export default {
                     {caption: "التنبيهات", url: "/notifications" /*, gate: ["page_13"]*/},
                 ]
             },
-           {caption: "المصروفات" ,depts:["*"],/* gate:["controller_7"],*/ icon:"fas fa-tasks", url: "/expenses", "functions": [
+            {caption: "المصروفات" ,depts:["*"],/* gate:["controller_7"],*/ icon:"fas fa-tasks", url: "/expenses", "functions": [
                     {caption: "المصروفات",/*gate:["page_22"],*/ url: "/expenses"},
                     {caption: "استيراد المصروفات",/*gate:["page_22"],*/ url: "/expenses/import"}
                 ]},
             {caption: "المدفوعات",depts:["*"], /*gate:["controller_8"],*/ icon:"fa fa-poll", url: "/payments", "functions": [
                     {caption: "المدفوعات", /*gate:["page_23"],*/ url: "/payments"}
                 ]},
-          {caption: " التقارير",depts:["*"], /*gate:["controller_12"],*/ icon:"far fa-list-alt", url: "/reports", "functions":[
+            {caption: " التقارير",depts:["*"], /*gate:["controller_12"],*/ icon:"far fa-list-alt", url: "/reports", "functions":[
                     {caption: " تقرير المصروفات", /*gate:["page_27"],*/ url: "/reports/expenses"},
                     {caption: " تقرير المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments"},
                     {caption: " تقرير الفرق", /*gate:["page_27"],*/ url: "/reports/teams"},
+                    {caption: " تقرير حركات المصروفات", /*gate:["page_27"],*/ url: "/reports/expenses/moves"},
+                    {caption: " تقرير حركات المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments/moves"},
                 ]
             },
 

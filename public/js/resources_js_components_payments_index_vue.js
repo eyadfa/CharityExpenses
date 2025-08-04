@@ -169,13 +169,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   },
   data: function data() {
     return {
-      title: 'الأجندة',
+      title: 'المدفوعات',
       add_title: ' بند جديد',
       add_url: this.$router.resolve({
-        name: 'addAgenda'
+        name: 'addPayments'
       }),
       form: {},
-      api_url: "/api/agenda",
+      api_url: "/api/payments",
       loading: false,
       total: 0,
       currentPage: 1,

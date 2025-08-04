@@ -8,11 +8,11 @@
             </h3>
             <div class="card-toolbar col-12 d-block">
 
-            <div class="me-4 btn-group">
-                <button :disabled="!can('agenda_search')" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                    <span class="fas fa-filter svg-icon-gray-500 me-1"></span>
-                    البحث
-                </button>
+                <div class="me-4 btn-group">
+                    <button :disabled="!can('agenda_search')" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                        <span class="fas fa-filter svg-icon-gray-500 me-1"></span>
+                        البحث
+                    </button>
                     <div class="dropdown-menu w-450px w-md-500px" >
                         <div class="separator border-gray-200"></div>
                         <form method="post" id="departments_search_form" >
@@ -57,7 +57,7 @@
                     :print-action="print"
                     export-to-excel-perms="agenda_export_to_excel"
                     :export-to-excel-action="exportToExcel"
-                    />
+                />
 
 
 
@@ -131,9 +131,8 @@ export default {
         return {
             title: 'تقارير الفرق',
             add_title:' بند جديد',
-            add_url: this.$router.resolve({name:'addAgenda'}),
             form:{},
-            api_url: "/api/agenda",
+            api_url: "/api/teams",
             loading:false,
             total: 0,
             currentPage:1,

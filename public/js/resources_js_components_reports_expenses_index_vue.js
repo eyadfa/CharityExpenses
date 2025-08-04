@@ -129,7 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tabs/table */ "./resources/js/components/reports/expenses/tabs/table.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "agendaIndex",
+  name: "reportsExpensesIndex",
   components: {
     data_table: _tabs_table__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -171,9 +171,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       title: 'تقرير المصروفات',
       add_title: ' بند جديد',
-      add_url: this.$router.resolve({
-        name: 'addAgenda'
-      }),
       form: {},
       api_url: "/api/agenda",
       loading: false,
@@ -568,14 +565,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "form-control form-control-solid",
     rows: "3"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.notes]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_action_buttons, {
-    "add-url": $data.add_url.path,
-    "add-title": $data.add_title,
-    "add-perms": "agenda_add",
+    "show-add": false,
     "print-perms": "agenda_print",
     "print-action": $options.print,
     "export-to-excel-perms": "agenda_export_to_excel",
     "export-to-excel-action": $options.exportToExcel
-  }, null, 8 /* PROPS */, ["add-url", "add-title", "print-action", "export-to-excel-action"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_cache[18] || (_cache[18] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  }, null, 8 /* PROPS */, ["print-action", "export-to-excel-action"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_cache[18] || (_cache[18] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "form-label fw-boldest"
   }, " عدد السجلات :", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.total), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table, {
     stripe: true,

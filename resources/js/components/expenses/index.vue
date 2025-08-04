@@ -43,7 +43,7 @@ export default {
     components:{data_table},
     data() {
         return {
-            title:"المصرفات"
+            title:"المصروفات"
         }
     },
 }
