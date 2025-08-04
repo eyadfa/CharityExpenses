@@ -16,11 +16,7 @@ export const routes = [
         component: Home
     },
 
-    {
-        name: 'register',
-        path: '/register',
-        component: Register
-    },
+
     {
         name: 'login',
         path: '/login',
@@ -301,93 +297,6 @@ export const routes = [
 
 
 
-/////////////////////////////////////////////////////////////////////////////////
-    {
-        name: 'tasks',
-        path: '/tasks',
-        component: ()=> import("../components/secretarial/tasks/index"),
-        meta: {
-            gate: ["page_22"]
-        }
-    },
-    {
-        name: 'addTask',
-        path: '/tasks/add',
-        component: ()=> import("../components/secretarial/tasks/form"),
-        meta: {
-            gate: ["tasks_add"]
-        }
-    },
-    {
-        name: 'editTask',
-        path: '/tasks/edit/:id',
-        component: ()=> import("../components/secretarial/tasks/form"),
-        meta: {
-            gate: ["tasks_edit"]
-        }
-    },
-    {
-        name: 'taskDetails',
-        path: '/tasks/details/:id',
-        component: ()=> import("../components/secretarial/tasks/details"),
-        meta: {
-            gate: ["taks_handle"]
-        }
-    },
-    {
-        name: 'addSubTask',
-        path: '/tasks/sub/:id',
-        component: ()=> import("../components/secretarial/tasks/sub_task"),
-        meta: {
-            gate: ["tasks_add_sub_tasks"]
-        }
-    },
-    {
-        name: 'editSubTask',
-        path: '/tasks/sub/edit/:id',
-        component: ()=> import("../components/secretarial/tasks/sub_task"),
-        meta: {
-            gate: ["tasks_edit_sub_tasks"]
-        }
-    },
-    {
-        name: 'finishSubTask',
-        path: '/tasks/sub/finish/:id',
-        component: ()=> import("../components/secretarial/tasks/finish_sub_task"),
-        meta: {
-            gate: ["tasks_close_sub_tasks"]
-        }
-    },
-
-
-
-////////////////////////////// ::followups:: ///////////////////////////////
-    {
-        name: 'followups',
-        path: '/followups',
-        component: ()=> import("../components/secretarial/followups/index"),
-        meta: {
-            gate: ["page_23"]
-        }
-    },
-    {
-        name: 'addFollowup',
-        path: '/followups/add',
-        component: ()=> import("../components/secretarial/followups/form"),
-        meta: {
-            gate: ["followup_add"]
-        }
-    },
-    {
-        name: 'followupDetails',
-        path: '/followup/details/:id',
-        component: ()=> import("../components/secretarial/followups/details"),
-        meta: {
-            gate: ["followup_handle"]
-        }
-    },
-
-////////////// Departments Requests::end//////////////////////////
 ///////////
 
     ///////////
@@ -415,6 +324,95 @@ export const routes = [
             gate: ["agenda_edit"]
         }
     },
+ /////////////////////////////////////  Expenses :: start :://///////////////////////////////
+    ///////////
+    {
+        name: 'expenses',
+        path: '/expenses',
+        component: ()=> import("../components/expenses/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'addExpenses',
+        path: '/expenses/add',
+        component: ()=> import("../components/expenses/form"),
+        meta: {
+            gate: ["expenses_add"]
+        }
+    },
+    {
+        name: 'importExpenses',
+        path: '/expenses/import',
+        component: ()=> import("../components/expenses/importForm"),
+        meta: {
+            gate: ["expenses_add"]
+        }
+    },
+    {
+        name: 'editExpenses',
+        path: '/expenses/edit/:id',
+        component: ()=> import("../components/expenses/form"),
+        meta: {
+            gate: ["expenses_edit"]
+        }
+    },
+ /////////////////////////////////////  Expenses :: End :://///////////////////////////////
+
+ /////////////////////////////////////  Payments :: start :://///////////////////////////////
+    ///////////
+    {
+        name: 'payments',
+        path: '/payments',
+        component: ()=> import("../components/payments/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'addPayments',
+        path: '/payments/add',
+        component: ()=> import("../components/payments/form"),
+        meta: {
+            gate: ["payments_add"]
+        }
+    },
+    {
+        name: 'editPayments',
+        path: '/payments/edit/:id',
+        component: ()=> import("../components/payments/form"),
+        meta: {
+            gate: ["payments_edit"]
+        }
+    },
+ /////////////////////////////////////  Payments :: end :://///////////////////////////////
+ /////////////////////////////////////  Reports :: start ::////////////////////////////////
+    {
+        name: 'reportsExpenses',
+        path: '/reports/expenses',
+        component: ()=> import("../components/reports/expenses/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'reportsPayments',
+        path: '/reports/payments',
+        component: ()=> import("../components/reports/payments/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'teamsReports',
+        path: '/reports/teams',
+        component: ()=> import("../components/reports/teams/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+ /////////////////////////////////////  Reports :: end :://///////////////////////////////
 
 ];
 
@@ -427,7 +425,7 @@ router.beforeEach((to, from, next) => {
     //const title = to.meta.title || 'Default Title'; // Set a default title if needed
     //check for multiple permisisons for the same route
 
-    document.title = "نظام ادارة المعلومات";
+    document.title = "نظام ادارة المصروفات";
     if (to.matched.some(record => record.meta.noRequiresAuth) ) {
         next();//only for login route
     } else {
