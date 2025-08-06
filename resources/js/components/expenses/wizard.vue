@@ -6,13 +6,7 @@
         <div class="card-body pt-9 pb-0">
             <!--begin::Details-->
             <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
-                <!--begin: Pic-->
-                <div class="me-7 mb-4">
-                    <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                        <img :src="image_path" alt="image">
-                    </div>
-                </div>
-                <!--end::Pic-->
+
                 <!--begin::Info-->
                 <div class="flex-grow-1">
                     <!--begin::Title-->
@@ -35,7 +29,7 @@
                         <!--end::User-->
                         <!--begin::Actions-->
                         <div class="d-flex my-4">
-                            <button @click.prevent="$router.back()" class="me-3 btn btn-sm btn-light-dark ">الرجوع لادارة ملفات الشهداء</button>
+                            <button @click.prevent="$router.back()" class="me-3 btn btn-sm btn-light-dark ">الرجوع لادارة المصروفات</button>
                         </div>
                         <!--end::Actions-->
                     </div>
@@ -48,38 +42,34 @@
                             <div class="d-flex flex-wrap">
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                    <!--begin::Number-->
                                     <div class="d-flex align-items-center">
                                         <div class="fs-2 fw-bolder counted" >{{form.martyrdom_date}}</div>
                                     </div>
-                                    <!--end::Number-->
-                                    <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">تاريخ الاستشهاد</div>
-                                    <!--end::Label-->
+                                    <div class="fw-bold fs-6 text-gray-400">تاريخ الفاتورة</div>
                                 </div>
                                 <!--end::Stat-->
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                    <!--begin::Number-->
                                     <div class="d-flex align-items-center">
                                         <div class="fs-2 fw-bolder counted">{{form.martyrdom_reason}}</div>
                                     </div>
-                                    <!--end::Number-->
-                                    <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">سبب الاستشهاد</div>
-                                    <!--end::Label-->
+                                    <div class="fw-bold fs-6 text-gray-400">الجهة المرتبطة</div>
                                 </div>
                                 <!--end::Stat-->
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                    <!--begin::Number-->
                                     <div class="d-flex align-items-center">
                                         <div class="fs-2 fw-bolder counted">{{form.martyrdom_location}}</div>
                                     </div>
-                                    <!--end::Number-->
-                                    <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">مكان الاستشهاد</div>
-                                    <!--end::Label-->
+                                    <div class="fw-bold fs-6 text-gray-400">بند المصروف</div>
+                                </div>
+                                <!--end::Stat-->
+                                <!--begin::Stat-->
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="fs-2 fw-bolder counted">{{form.martyrdom_location}}</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">المبلغ الاجمالي بالشيكل</div>
                                 </div>
                                 <!--end::Stat-->
                             </div>
@@ -115,12 +105,12 @@
 
 
             <div v-show="currentStep === 0">
-                <!-- العائلة -->
-                <expenses-form  ref="basic_tab" :wizard="true" @nextStep="nextStep"/>
+                <!-- البيانات الأساسية -->
+                <expenses-basic-data-form   ref="basic_tab" :wizard="true" @nextStep="nextStep"/>
                 <el-button @click="nextStep">التالي</el-button>
             </div>
             <div v-show="currentStep === 1">
-                <!-- السكن -->
+                <!-- تفاصيل الفاتورة -->
                 <expenses-details-form ref="details_tab" :wizard="true" @nextStep="nextStep"/>
                 <el-button type="primary" @click="finish">إنهاء</el-button>
             </div>
@@ -134,9 +124,11 @@ import {markRaw} from "vue";
 import { Edit, Picture, UploadFilled } from '@element-plus/icons-vue'
 import {round} from "lodash/math";
 import ExpensesForm from "./form";
-import ExpensesDetailsForm from "./expensesDetailsForm";
+import ExpensesDetailsForm from "./tabs/expensesDetailsForm";
+import ExpensesBasicDataForm from "./tabs/basic_data";
 export default {
     components:{
+        ExpensesBasicDataForm,
         ExpensesDetailsForm,
         ExpensesForm, Edit,Picture,UploadFilled},
     data() {
@@ -159,6 +151,8 @@ export default {
     },
     methods: {
         async nextStep() {
+            this.currentStep++; // for MVP
+            return; //for MVP
             if (this.currentStep < 2) {
                 let res = false;
                 switch (this.currentStep) {

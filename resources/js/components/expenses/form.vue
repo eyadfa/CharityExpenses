@@ -43,14 +43,14 @@
                         </div>
 
                         <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="بند المصروف"/>
+                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="4" title="بند المصروف"/>
                             <span v-for="error of v$.form.priority_cd.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                         <p>{{ msg(error) }}</p>
                                     </span>
                         </div>
 
-                        <div class="col-md-2 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> الكمية</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -59,7 +59,7 @@
                             </span>
                         </div>
 
-                        <div class="col-md-2 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -67,8 +67,8 @@
                                 <p>{{ msg(error) }}</p>
                             </span>
                         </div>
-                        <div class="col-md-2 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="العملة"/>
+                        <div class="col-md-4 fv-row">
+                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="1" title="العملة"/>
                             <span v-for="error of v$.form.address.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
@@ -76,7 +76,7 @@
                         </div>
 
 
-                        <div class="col-md-2 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -85,7 +85,7 @@
                             </span>
                         </div>
 
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2">المبلغ الكلي</label>
                             <input disabled v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -96,28 +96,27 @@
 
 
 
-                        <div class="col-md-2 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> تاريخ الصرف </label>
                             <input v-model="form.start_date" class="form-control form-control-solid"
-                                   type="datetime-local"/>
+                                   type="date"/>
                             <span v-for="error of v$.form.start_date.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                         <p>{{ msg(error) }}</p>
                                     </span>
                         </div>
-                        <div class="col-md-5 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="نوع الصرف"/>
+                        <div class="col-md-4 fv-row">
+                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="8" title="نوع الصرف"/>
                             <span v-for="error of v$.form.address.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
                         </div>
 
-                        <div class="col-md-4 fv-row">
+                        <div class="col-md-8 fv-row">
                             <label class="fs-5 fw-bold mb-2"> ملاحظات</label>
                             <textarea v-model="form.notes" class="form-control form-control-solid" rows="3"></textarea>
                         </div>
-
                     </div>
 
 

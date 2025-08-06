@@ -135,19 +135,19 @@ export default {
     data() {
         return {
             title: 'المصروفات',
-            add_title:' بند جديد',
+            add_title:' فاتورة جديدة',
             add_url: this.$router.resolve({name:'addExpenses'}),
             form:{},
             api_url: "/api/expenses",
             loading:false,
             total: 0,
             currentPage:1,
-            results:[],
+            results:[{}],
         }
     },
     created() {
         api.vw=this;
-        this.search();
+      //  this.search();
     },
     methods: {
         async search(next) {

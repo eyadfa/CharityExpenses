@@ -170,7 +170,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   data: function data() {
     return {
       title: 'المصروفات',
-      add_title: ' بند جديد',
+      add_title: ' فاتورة جديدة',
       add_url: this.$router.resolve({
         name: 'addExpenses'
       }),
@@ -179,12 +179,12 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       loading: false,
       total: 0,
       currentPage: 1,
-      results: []
+      results: [{}]
     };
   },
   created: function created() {
     _src_api__WEBPACK_IMPORTED_MODULE_1__["default"].vw = this;
-    this.search();
+    //  this.search();
   },
   methods: {
     search: function search(next) {

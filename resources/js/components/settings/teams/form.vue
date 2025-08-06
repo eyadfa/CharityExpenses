@@ -23,7 +23,7 @@
                                 <input v-model="form.nickname" class="form-control form-control-solid" type="text"/>
                             </div>
 
-                            <div class="col-md-2 fv-row">
+                            <div class="col-md-4 fv-row">
                                 <code-select v-model:sub_cd="form.priority_cd" :main_cd="2" title="مكان العمل "/>
                                 <span v-for="error of v$.form.iso.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
@@ -31,7 +31,7 @@
                                 </span>
                             </div>
 
-                            <div class="col-md-2 fv-row">
+                            <div class="col-md-4 fv-row">
                                 <code-select v-model:sub_cd="form.priority_cd" :main_cd="3" title="المحافظة"/>
                                 <span v-for="error of v$.form.iso3.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
@@ -39,7 +39,7 @@
                                 </span>
                             </div>
 
-                            <div class="col-md-6 fv-row">
+                            <div class="col-md-4 fv-row">
                                 <code-select v-model:sub_cd="form.priority_cd" :main_cd="6" title="الحالة"/>
                             </div>
                         </div>

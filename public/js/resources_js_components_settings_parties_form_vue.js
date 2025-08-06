@@ -637,10 +637,10 @@ var _hoisted_11 = {
   "class": "col-md-4 fv-row"
 };
 var _hoisted_12 = {
-  "class": "col-md-2 fv-row"
+  "class": "col-md-4 fv-row"
 };
 var _hoisted_13 = {
-  "class": "col-md-6 fv-row"
+  "class": "col-md-4 fv-row"
 };
 var _hoisted_14 = {
   "class": "d-flex flex-center"

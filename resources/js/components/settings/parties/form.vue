@@ -31,7 +31,7 @@
                                 </span>
                             </div>
 
-                            <div class="col-md-2 fv-row">
+                            <div class="col-md-4 fv-row">
                                 <label class="required fs-5 fw-bold mb-2">اسم المدير</label>
                                 <input v-model="form.iso3" class="form-control form-control-solid" type="text"/>
                                 <span v-for="error of v$.form.iso3.$errors" :key="error.$uid"
@@ -40,7 +40,7 @@
                                 </span>
                             </div>
 
-                            <div class="col-md-6 fv-row">
+                            <div class="col-md-4 fv-row">
                                 <code-select v-model:sub_cd="form.priority_cd" :main_cd="6" title="الحالة"/>
                             </div>
                         </div>

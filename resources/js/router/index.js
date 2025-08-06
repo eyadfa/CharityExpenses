@@ -287,7 +287,7 @@ export const routes = [
     {
         name: 'addExpenses',
         path: '/expenses/add',
-        component: ()=> import("../components/expenses/form"),
+        component: ()=> import("../components/expenses/wizard"),
         meta: {
             gate: ["expenses_add"]
         }
