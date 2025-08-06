@@ -82,57 +82,7 @@ export const routes = [
             gate: ["system_settings_edit"]
         }
     },
-    ////////////////
 
-    {
-        name: 'cities',
-        path: '/cities',
-        component: () =>  import("../components/settings/cities"),
-        meta: {
-            gate: ["page_7"]
-        }
-    },
-    {
-        name: 'addCity',
-        path: '/cities/add',
-        component: () =>  import("../components/settings/cities/form"),
-        meta: {
-            gate: ["cities_add"]
-        }
-    },
-    {
-        name: 'editCity',
-        path: '/cities/edit/:id',
-        component: () =>  import("../components/settings/cities/form"),
-        meta: {
-            gate: ["cities_edit"]
-        }
-    },
-///////////////////////////////////////////////////////
-    {
-        name: 'countries',
-        path: '/countries',
-        component: () =>  import("../components/settings/country"),
-        meta: {
-            gate: ["page_6"]
-        }
-    },
-    {
-        name: 'addCountry',
-        path: '/countries/add',
-        component: () =>  import("../components/settings/country/form"),
-        meta: {
-            gate: ["countries_add"]
-        }
-    },
-    {
-        name: 'editCountry',
-        path: '/countries/edit/:id',
-        component: () =>  import("../components/settings/country/form"),
-        meta: {
-            gate: ["countries_edit"]
-        }
-    },
 
     ////////////////////////////////////////////
     {
@@ -468,7 +418,7 @@ export const routes = [
     },
     {
         name: 'partiesReports',
-        path: '/reports/teams',
+        path: '/reports/parties',
         component: ()=> import("../components/reports/parties"),
         meta: {
             gate: ["page_27"]

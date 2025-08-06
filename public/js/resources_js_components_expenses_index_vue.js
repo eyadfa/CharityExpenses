@@ -129,7 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tabs/table */ "./resources/js/components/expenses/tabs/table.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "agendaIndex",
+  name: "expensesIndex",
   components: {
     data_table: _tabs_table__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
