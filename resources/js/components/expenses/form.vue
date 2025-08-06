@@ -144,7 +144,7 @@ import CodeSelect from "../_common/codeSelect";
 import ValidationServerErrors from "../_common/ValidationServerErrors";
 
 export default {
-    name: "agendaForm",
+    name: "expensesForm",
     components: {ValidationServerErrors, CodeSelect},
     setup() {
         return {v$: useVuelidate()}

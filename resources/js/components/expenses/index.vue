@@ -39,7 +39,7 @@
 <script>
 import  data_table  from './tabs/table';
 export default {
-    name: "agendaIndex",
+    name: "expensesIndex",
     components:{data_table},
     data() {
         return {
