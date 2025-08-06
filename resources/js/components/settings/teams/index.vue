@@ -31,11 +31,11 @@
 <script>
     import  data_table  from './tabs/table';
     export default {
-        name: "countriesIndex",
+        name: "teamsIndex",
         components: {data_table},
         data() {
             return {
-                title: "الدول"
+                title: "فرق العمل"
             }
         },
     }

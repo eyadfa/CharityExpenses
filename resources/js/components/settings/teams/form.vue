@@ -11,7 +11,7 @@
                     <form class="form" method="post">
                         <div class="row mb-5">
                             <div class="col-md-4 fv-row">
-                                <label class="required fs-5 fw-bold mb-2">الاسم</label>
+                                <label class="required fs-5 fw-bold mb-2">اسم الفريق</label>
                                 <input v-model="form.name" class="form-control form-control-solid" type="text"/>
                                 <span v-for="error of v$.form.name.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
@@ -19,13 +19,12 @@
                                 </span>
                             </div>
                             <div class="col-md-4 fv-row">
-                                <label class=" fs-5 fw-bold mb-2">الاسم المستعار</label>
+                                <label class=" fs-5 fw-bold mb-2">اسم قائد الفريق</label>
                                 <input v-model="form.nickname" class="form-control form-control-solid" type="text"/>
                             </div>
 
                             <div class="col-md-2 fv-row">
-                                <label class="required fs-5 fw-bold mb-2">ISO</label>
-                                <input v-model="form.iso" class="form-control form-control-solid" type="text"/>
+                                <code-select v-model:sub_cd="form.priority_cd" :main_cd="2" title="مكان العمل "/>
                                 <span v-for="error of v$.form.iso.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
                                     <p>{{ msg(error) }}</p>
@@ -33,33 +32,15 @@
                             </div>
 
                             <div class="col-md-2 fv-row">
-                                <label class="required fs-5 fw-bold mb-2">ISO3</label>
-                                <input v-model="form.iso3" class="form-control form-control-solid" type="text"/>
+                                <code-select v-model:sub_cd="form.priority_cd" :main_cd="3" title="المحافظة"/>
                                 <span v-for="error of v$.form.iso3.$errors" :key="error.$uid"
-                                      class="text-danger fw-light">
-                                    <p>{{ msg(error) }}</p>
-                                </span>
-                            </div>
-                            <div class="col-md-2 fv-row">
-                                <label class="required fs-5 fw-bold mb-2">كود الاتصال</label>
-                                <input v-model="form.phone_code" class="form-control form-control-solid"
-                                       type="text"/>
-                                <span v-for="error of v$.form.phone_code.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
                                     <p>{{ msg(error) }}</p>
                                 </span>
                             </div>
 
                             <div class="col-md-6 fv-row">
-                                <label class=" fs-5 fw-bold mb-2"> الحالة</label>
-                                <div class="d-flex flex-stack">
-                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                        <span class="form-check-label fw-bold text-muted">غير فعال</span>
-                                        <input v-model="form.is_active" checked="checked" class="form-check-input"
-                                               name="status" type="checkbox" value="1"/>
-                                        <span class="form-check-label fw-bold text-muted">فعال</span>
-                                    </label>
-                                </div>
+                                <code-select v-model:sub_cd="form.priority_cd" :main_cd="6" title="الحالة"/>
                             </div>
                         </div>
                         <div class="d-flex flex-center">
@@ -87,10 +68,11 @@ import {maxLength, minLength, required} from '@vuelidate/validators'
 import shared from "../../../src/shared";
 import api from "../../../src/api";
 import ValidationServerErrors from "../../_common/ValidationServerErrors";
+import CodeSelect from "../../_common/codeSelect";
 
 export default {
     name: "countryForm",
-    components: {ValidationServerErrors},
+    components: {CodeSelect, ValidationServerErrors},
     setup() {
         return {v$: useVuelidate()}
     },
@@ -100,10 +82,10 @@ export default {
     },
     data() {
         return {
-            title: "دولة جديدة",
+            title: "فريق جديد",
             form: {is_active: true},
-            api_url:"/api/countries",
-            edit_route:"editCountry",
+            api_url:"/api/teams",
+            edit_route:"editTeam",
             errors:[],
             loading:false,
         }

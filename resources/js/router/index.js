@@ -387,9 +387,63 @@ export const routes = [
         }
     },
     /////////////////////////////////////  Payments :: end :://///////////////////////////////
+    /////////////////////////////////////  Parties :: start :://///////////////////////////////
+    ///////////
+    {
+        name: 'parties',
+        path: '/parties',
+        component: ()=> import("../components/settings/parties"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'addParty',
+        path: '/parties/add',
+        component: ()=> import("../components/settings/parties/form"),
+        meta: {
+            gate: ["parties_add"]
+        }
+    },
+    {
+        name: 'editParty',
+        path: '/paties/edit/:id',
+        component: ()=> import("../components/settings/parties/form"),
+        meta: {
+            gate: ["parties_edit"]
+        }
+    },
+    /////////////////////////////////////  Parties :: end :://///////////////////////////////
+    /////////////////////////////////////  Teams :: start :://///////////////////////////////
+    ///////////
+    {
+        name: 'teams',
+        path: '/teams',
+        component: ()=> import("../components/settings/teams/index"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'addTeam',
+        path: '/teams/add',
+        component: ()=> import("../components/settings/teams/form"),
+        meta: {
+            gate: ["teams_add"]
+        }
+    },
+    {
+        name: 'editTeam',
+        path: '/teams/edit/:id',
+        component: ()=> import("../components/settings/teams/form"),
+        meta: {
+            gate: ["teams_edit"]
+        }
+    },
+    /////////////////////////////////////  Teams :: end :://///////////////////////////////
     /////////////////////////////////////  Reports :: start ::////////////////////////////////
     {
-        name: 'reportsExpenses',
+        name: 'expensesReports',
         path: '/reports/expenses',
         component: ()=> import("../components/reports/expenses"),
         meta: {
@@ -397,7 +451,7 @@ export const routes = [
         }
     },
     {
-        name: 'reportsPayments',
+        name: 'paymentsReports',
         path: '/reports/payments',
         component: ()=> import("../components/reports/payments"),
         meta: {
@@ -408,6 +462,14 @@ export const routes = [
         name: 'teamsReports',
         path: '/reports/teams',
         component: ()=> import("../components/reports/teams"),
+        meta: {
+            gate: ["page_27"]
+        }
+    },
+    {
+        name: 'partiesReports',
+        path: '/reports/teams',
+        component: ()=> import("../components/reports/parties"),
         meta: {
             gate: ["page_27"]
         }

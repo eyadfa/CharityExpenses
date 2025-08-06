@@ -94,10 +94,10 @@
 
             <div class="overflow-auto">
                 <el-table :data="results" height="500" :stripe="true" style="width: 100%">
-                    <el-table-column label="الدولة" prop="name" />
-                    <el-table-column label="iso" prop="iso" />
-                    <el-table-column label="iso3" prop="iso3" />
-                    <el-table-column label="الاسم المستعار" prop="nickname" />
+                    <el-table-column label="اسم المؤسسة" prop="name" />
+                    <el-table-column label="اسم المدير" prop="iso" />
+                    <el-table-column label="رقم جوال للتواصل" prop="iso3" />
+                    <el-table-column label="نوع النشاط" prop="nickname" />
                     <el-table-column label=" الحالة" >
                         <template #default="scope">
                             <el-button :disabled="!can('countries_activation')" v-if="scope.row.is_active ==1" @click.prevent="_deactivate(scope.row.id)" type="success">فعال</el-button>
@@ -139,16 +139,16 @@ import shared from "../../../../src/shared";
 import api from "../../../../src/api";
 import ActionButtons from "../../../_common/actionButtons";
 export default {
-    name: "countriesTable",
+    name: "partiesTable",
     components: {ActionButtons},
     data() {
         return {
-            title: 'ادارة بيانات الدول',
-            add_title: 'دولة جديدة',
-            add_url: this.$router.resolve({ name: 'addCountry' }),
+            title: 'ادارة بيانات الجهات المرتبطة',
+            add_title: 'جهة مرتبطة جديدة',
+            add_url: this.$router.resolve({ name: 'addParty' }),
             form: {},
             results:[],
-            api_url:"/api/countries",
+            api_url:"/api/parties",
             currentPage: 1,
             loading:false,
             total: 0,

@@ -11,7 +11,7 @@
                     <div class="row mb-5">
 
 
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> الفريق</label>
                             <el-select v-model="form.name" filterable placeholder="اختر..." class="form-control" >
                                 <el-option
@@ -26,8 +26,23 @@
                                         <p>{{ msg(error) }}</p>
                                     </span>
                         </div>
+                        <div class="col-md-4 fv-row">
+                            <label class="required fs-5 fw-bold mb-2"> الجهة المرتبطة</label>
+                            <el-select v-model="form.name" filterable placeholder="اختر..." class="form-control" >
+                                <el-option
+                                    v-for="item in teams"
+                                    :key="item.id"
+                                    :label="item.full_name"
+                                    :value="item"
+                                />
+                            </el-select>
+                            <span v-for="error of v$.form.name.$errors"
+                                  :key="error.$uid" class="text-danger fw-light">
+                                        <p>{{ msg(error) }}</p>
+                                    </span>
+                        </div>
 
-                        <div class="col-md-2 fv-row">
+                        <div class="col-md-4 fv-row">
                             <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="بند المصروف"/>
                             <span v-for="error of v$.form.priority_cd.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
@@ -35,7 +50,7 @@
                                     </span>
                         </div>
 
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-2 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> الكمية</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -44,7 +59,7 @@
                             </span>
                         </div>
 
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-2 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
@@ -52,7 +67,7 @@
                                 <p>{{ msg(error) }}</p>
                             </span>
                         </div>
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-2 fv-row">
                             <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="العملة"/>
                             <span v-for="error of v$.form.address.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
@@ -61,7 +76,7 @@
                         </div>
 
 
-                        <div class="col-md-5 fv-row">
+                        <div class="col-md-2 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
                             <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"

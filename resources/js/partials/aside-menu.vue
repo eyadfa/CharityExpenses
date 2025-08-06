@@ -101,6 +101,8 @@ export default {
                     {caption: "الروابط الفرعية", url: "/functions"/* , gate: ["page_5"]*/},
                     {caption: "الدول", url: "/countries" /*, gate: ["page_6"]*/},
                     {caption: "المدن", url: "/cities" /* , gate: ["page_7"]*/},
+                    {caption: "الجهات المرتبطة", url: "/parties" /* , gate: ["page_7"]*/},
+                    {caption: "فرق العمل", url: "/teams" /* , gate: ["page_7"]*/},
                 ]
             },
             {
@@ -123,6 +125,7 @@ export default {
                     {caption: " تقرير المصروفات", /*gate:["page_27"],*/ url: "/reports/expenses"},
                     {caption: " تقرير المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments"},
                     {caption: " تقرير الفرق", /*gate:["page_27"],*/ url: "/reports/teams"},
+                    {caption: " تقرير الجهات المرتبطة", /*gate:["page_27"],*/ url: "/reports/parties"},
                     {caption: " تقرير حركات المصروفات", /*gate:["page_27"],*/ url: "/reports/expenses/moves"},
                     {caption: " تقرير حركات المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments/moves"},
                 ]
