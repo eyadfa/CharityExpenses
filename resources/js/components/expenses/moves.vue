@@ -1,0 +1,117 @@
+<template>
+
+    <div v-loading="loading" class="row gy-5 g-xl-8">
+        <div class="col-12">
+            <div class="card ">
+
+                <div class="card-body">
+                    <div class="container mt-5">
+                        <h2 class="mb-4 text-center">Record Modification History</h2>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered bg-white">
+                                <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Modified By</th>
+                                    <th scope="col">Date & Time</th>
+                                    <th scope="col">Field Changed</th>
+                                    <th scope="col">Old Value</th>
+                                    <th scope="col">New Value</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>John Doe</td>
+                                    <td>2025-08-06 14:30</td>
+                                    <td>Status</td>
+                                    <td>Pending</td>
+                                    <td>Approved</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal">
+                                            <i class="bi bi-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Repeat rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
+<script>
+import shared from "../../src/shared";
+import api from "../../src/api";
+import {useVuelidate} from "@vuelidate/core";
+import {required} from "@vuelidate/validators";
+import CodeSelect from "../_common/codeSelect";
+import ValidationServerErrors from "../_common/ValidationServerErrors";
+import ExpensesBasicDataForm from "./tabs/basic_data";
+import ExpensesDetailsForm from "./tabs/expensesDetailsForm";
+
+export default {
+    name: "expensesMoves",
+    components: {ExpensesDetailsForm, ExpensesBasicDataForm, ValidationServerErrors, CodeSelect},
+    setup() {
+        return {v$: useVuelidate()}
+    },
+    validationConfig: {
+        $dirty: true,
+    },
+    validations() {
+        return {
+            form: {
+                name: {required},
+                address: {required},
+                priority_cd: {required},
+                start_date: {required},
+                end_date: {required},
+                details: {required},
+            }
+        }
+    },
+    data() {
+        return {
+            title: "حركات المصروف",
+            form: {},
+            edit_route: "editAgenda",
+            loading: false,
+            api_url: "/api/agenda",
+            errors:[],
+            teams:[],
+        }
+    },
+    async created() {
+        api.vw = this;
+        if (this.$router.currentRoute.value.name === this.edit_route) {
+            this.form = await api.show(this.$route.params.id)
+        }
+    },
+    methods: {
+        async submit() {
+            this.v$.form.$touch();
+            if (this.v$.form.$invalid) {
+                shared.alert("يوجد بيانات مفقودة");
+                return;
+            }
+            if (this.$router.currentRoute.value.name === this.edit_route) {
+                await api.update();
+            } else {
+                await api.store();
+            }
+        },
+    },
+
+}
+</script>
+
+

@@ -3,129 +3,11 @@
     <div v-loading="loading" class="row gy-5 g-xl-8">
         <div class="col-12">
             <div class="card ">
-                <div class="card-header card-header-stretch">
-                    <h2 class="mt-5"> {{ title }} </h2>
-                </div>
+
                 <div class="card-body">
-                    <validation-server-errors :errors="errors" />
-                    <div class="row mb-5">
+                    <expenses-basic-data-form />
 
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> الفريق</label>
-                            <el-select v-model="form.name" filterable placeholder="اختر..." class="form-control" >
-                                <el-option
-                                    v-for="item in teams"
-                                    :key="item.id"
-                                    :label="item.full_name"
-                                    :value="item"
-                                />
-                            </el-select>
-                            <span v-for="error of v$.form.name.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> الجهة المرتبطة</label>
-                            <el-select v-model="form.name" filterable placeholder="اختر..." class="form-control" >
-                                <el-option
-                                    v-for="item in teams"
-                                    :key="item.id"
-                                    :label="item.full_name"
-                                    :value="item"
-                                />
-                            </el-select>
-                            <span v-for="error of v$.form.name.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="4" title="بند المصروف"/>
-                            <span v-for="error of v$.form.priority_cd.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> الكمية</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="1" title="العملة"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2">المبلغ الكلي</label>
-                            <input disabled v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> تاريخ الصرف </label>
-                            <input v-model="form.start_date" class="form-control form-control-solid"
-                                   type="date"/>
-                            <span v-for="error of v$.form.start_date.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                        <p>{{ msg(error) }}</p>
-                                    </span>
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="8" title="نوع الصرف"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-8 fv-row">
-                            <label class="fs-5 fw-bold mb-2"> ملاحظات</label>
-                            <textarea v-model="form.notes" class="form-control form-control-solid" rows="3"></textarea>
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex flex-center">
-                        <button class="btn btn-primary" type="submit" @click.prevent="submit()">
-                            <span class="indicator-label">حفظ</span>
-                        </button>
-                        <button class="btn btn-light me-3" @click.prevent="$router.back()">تراجع</button>
-                    </div>
+                    <expenses-details-form />
                 </div>
             </div>
         </div>
@@ -141,10 +23,12 @@ import {useVuelidate} from "@vuelidate/core";
 import {required} from "@vuelidate/validators";
 import CodeSelect from "../_common/codeSelect";
 import ValidationServerErrors from "../_common/ValidationServerErrors";
+import ExpensesBasicDataForm from "./tabs/basic_data";
+import ExpensesDetailsForm from "./tabs/expensesDetailsForm";
 
 export default {
     name: "expensesForm",
-    components: {ValidationServerErrors, CodeSelect},
+    components: {ExpensesDetailsForm, ExpensesBasicDataForm, ValidationServerErrors, CodeSelect},
     setup() {
         return {v$: useVuelidate()}
     },

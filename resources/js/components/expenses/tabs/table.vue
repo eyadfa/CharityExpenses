@@ -82,28 +82,55 @@
                     height="400"
                     style="width: 100%">
 
-                    <el-table-column align="right" label="الفريق" sortable  prop="name"  />
-                    <el-table-column align="right" label="بند المصروف" sortable  prop="name"  />
-                    <el-table-column align="right" label=" سعر الوحدة"  sortable prop="address"   />
-                    <el-table-column align="right" label=" المبلغ" sortable  prop="priority.desc_ar" />
-                    <el-table-column align="right" label=" العملة" sortable  prop="start_date" />
-                    <el-table-column align="right" label="سعر الصرف"  sortable prop="end_date" />
-                    <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="end_date" />
-                    <el-table-column align="right" label="تاريخ الصرف "  sortable prop="end_date" />
-                    <el-table-column align="right" label=" طريقة الصرف"  sortable prop="end_date" />
+                    <el-table-column align="right" label="الفريق" sortable  prop="team"  />
+                    <el-table-column align="right" label="بند المصروف" sortable  prop="band"  />
+                    <el-table-column align="right" label=" سعر الوحدة"  sortable prop="unit_price"   />
+                    <el-table-column align="right" label=" العملة" sortable  prop="currency" />
+                    <el-table-column align="right" label="سعر الصرف"  sortable prop="exchange" />
+                    <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="total" />
+                    <el-table-column align="right" label="تاريخ الصرف "  sortable prop="srf_date" />
+                    <el-table-column align="right" label=" طريقة الصرف"  sortable prop="srf_way" />
                     <el-table-column align="right" label=" ملاحظات"  sortable prop="created_at" />
-                    <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_at" />
+                    <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_by" />
                     <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
                     <el-table-column fixed="right">
-                        <template #default="scope">
-                            <router-link v-show="can('agenda_edit')" :to="{name: 'editAgenda', params: { id: scope.row.id }}" class="btn btn-primary">
-                                <i class="far fa-edit"></i>
-                            </router-link>
 
-                            <button v-show="can('agenda_delete')" class="btn btn-danger" @click.prevent="_delete(scope.row.id)" >
-                                <i class="far fa-trash-alt"/>
-                            </button>
-                        </template>
+                        <el-dropdown trigger="click">
+                                <span class="el-dropdown-link btn btn-secondary btn-icon">
+                                   <i class="fas fa-cogs"></i>
+                                </span>
+                            <template #dropdown #default="z">
+                                <el-dropdown-menu>
+                                    <el-dropdown-item v-if="can('users_edit')"  >
+                                        <router-link :to="{name: '', params: { id: scope.row.id }}" >
+                                            عرض
+                                        </router-link>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item v-if="can('users_edit')"  >
+                                        <router-link :to="{name: 'editUser', params: { id: scope.row.id }}" >
+                                            تعديل
+                                        </router-link>
+                                    </el-dropdown-item>
+
+                                    <el-dropdown-item v-if="can('users_edit')"  >
+                                        <router-link :to="{name: 'editUser', params: { id: scope.row.id }}" >
+                                            اعتماد
+                                        </router-link>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item v-if="can('users_delete')">
+                                        <a  class="text-danger" @click="_delete(scope.row.id)">
+                                            حذف
+                                        </a>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item v-if="can('users_permissions')">
+                                        <router-link :to="{name: 'userPermissions', params: { id: scope.row.id }}" >
+                                            حركات التعديل
+                                        </router-link>
+                                    </el-dropdown-item>
+
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
                     </el-table-column>
                 </el-table>
 
@@ -142,7 +169,10 @@ export default {
             loading:false,
             total: 0,
             currentPage:1,
-            results:[{}],
+            results:[
+                {team:"فريق خانيونس", band:"تكية" , unit_price:5, quantity:2, currency:"شيكل",
+                exchange:1 ,total:10 ,srf_date:"05/08/2025",srf_way:"تطبيق", created_by:'محمد احمد', created_at:'06/08/2025' }
+            ],
         }
     },
     created() {

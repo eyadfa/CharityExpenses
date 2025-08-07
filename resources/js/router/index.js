@@ -308,6 +308,22 @@ export const routes = [
             gate: ["expenses_edit"]
         }
     },
+    {
+        name: 'viewExpenses',
+        path: '/expenses/view/:id',
+        component: ()=> import("../components/expenses/view"),
+        meta: {
+            gate: ["expenses_edit"]
+        }
+    },
+    {
+        name: 'movesExpenses',
+        path: '/expenses/moves/:id',
+        component: ()=> import("../components/expenses/moves"),
+        meta: {
+            gate: ["expenses_edit"]
+        }
+    },
     /////////////////////////////////////  Expenses :: End :://///////////////////////////////
 
     /////////////////////////////////////  Payments :: start :://///////////////////////////////
