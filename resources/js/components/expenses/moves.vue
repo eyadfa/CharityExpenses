@@ -45,6 +45,29 @@
         </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">Modification Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Modified By:</strong> John Doe</p>
+                    <p><strong>Date:</strong> 2025-08-06 14:30</p>
+                    <p><strong>Field:</strong> Status</p>
+                    <p><strong>Old Value:</strong> Pending</p>
+                    <p><strong>New Value:</strong> Approved</p>
+                    <p><strong>Reason:</strong> Document verification completed.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 
