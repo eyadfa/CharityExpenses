@@ -231,6 +231,15 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         },
         details: {
           required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        currency_cd: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        exchange: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        amount: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
         }
       }
     };
@@ -238,7 +247,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   data: function data() {
     return {
       title: "البيانات الأساسية",
-      form: {},
+      form: {
+        currency_cd: 1,
+        exchange: 1,
+        amount: 1
+      },
       edit_route: "editAgenda",
       loading: false,
       api_url: "/api/agenda",
@@ -370,6 +383,15 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         },
         dob: {
           required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        currency_cd: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        exchange: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
+        },
+        amount: {
+          required: _vuelidate_validators__WEBPACK_IMPORTED_MODULE_5__.required
         }
       }
     };
@@ -378,7 +400,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       title: " تفاصيل الفاتورة",
       loading: false,
-      form_details: {},
+      form_details: {
+        currency_cd: 1,
+        amount: 1,
+        exchange: 1
+      },
       api_url: "/api/expenses/details",
       is_edit: false,
       results: [],
@@ -629,7 +655,7 @@ var _hoisted_1 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("loading");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _cache[0] || (_cache[0] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-12\"><div class=\"card\"><div class=\"card-body\"><div class=\"container mt-5\"><h2 class=\"mb-4 text-center\">Record Modification History</h2><div class=\"table-responsive\"><table class=\"table table-hover table-bordered bg-white\"><thead class=\"table-dark\"><tr><th scope=\"col\">#</th><th scope=\"col\">Modified By</th><th scope=\"col\">Date &amp; Time</th><th scope=\"col\">Field Changed</th><th scope=\"col\">Old Value</th><th scope=\"col\">New Value</th><th scope=\"col\">Actions</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td>John Doe</td><td>2025-08-06 14:30</td><td>Status</td><td>Pending</td><td>Approved</td><td><button class=\"btn btn-sm btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#detailsModal\"><i class=\"bi bi-eye\"></i> View </button></td></tr><!-- Repeat rows as needed --></tbody></table></div></div></div></div></div>", 1)]))), [[_directive_loading, $data.loading]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal fade\" id=\"detailsModal\" tabindex=\"-1\" aria-labelledby=\"detailsModalLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"detailsModalLabel\">Modification Details</h5><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><p><strong>Modified By:</strong> John Doe</p><p><strong>Date:</strong> 2025-08-06 14:30</p><p><strong>Field:</strong> Status</p><p><strong>Old Value:</strong> Pending</p><p><strong>New Value:</strong> Approved</p><p><strong>Reason:</strong> Document verification completed.</p></div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button></div></div></div></div>", 1))], 64 /* STABLE_FRAGMENT */);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _cache[0] || (_cache[0] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-12\"><div class=\"card\"><div class=\"card-body\"><div class=\"container mt-5\"><h2 class=\"mb-4 text-center\">حركات التعديل على سجل المدفوعات</h2><div class=\"table-responsive\"><table class=\"table table-hover table-bordered bg-white\"><thead class=\"table-dark\"><tr><th scope=\"col\">#</th><th scope=\"col\">تم التعديل بواسطة</th><th scope=\"col\">الوقت والتاريخ</th><th scope=\"col\">الحقل الذي تم تغييرة</th><th scope=\"col\">القيمة القديمة</th><th scope=\"col\">القيمة الجديدة</th><th scope=\"col\">Actions</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td>محمد أحمد</td><td>2025-08-06 14:30</td><td>الحالة</td><td>قيد التدقيق</td><td>تم الاعتماد</td><td><button class=\"btn btn-sm btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#detailsModal\"><i class=\"bi bi-eye\"></i> عرض </button></td></tr><tr><th scope=\"row\">1</th><td>محمد أحمد</td><td>2025-08-06 14:30</td><td>الحالة</td><td>قيد التدقيق</td><td>تم الاعتماد</td><td><button class=\"btn btn-sm btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#detailsModal\"><i class=\"bi bi-eye\"></i> عرض </button></td></tr><tr><th scope=\"row\">1</th><td>محمد أحمد</td><td>2025-08-06 14:30</td><td>الحالة</td><td>قيد التدقيق</td><td>تم الاعتماد</td><td><button class=\"btn btn-sm btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#detailsModal\"><i class=\"bi bi-eye\"></i> عرض </button></td></tr></tbody></table></div></div></div></div></div>", 1)]))), [[_directive_loading, $data.loading]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal fade\" id=\"detailsModal\" tabindex=\"-1\" aria-labelledby=\"detailsModalLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"detailsModalLabel\">Modification Details</h5><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><p><strong>Modified By:</strong> John Doe</p><p><strong>Date:</strong> 2025-08-06 14:30</p><p><strong>Field:</strong> Status</p><p><strong>Old Value:</strong> Pending</p><p><strong>New Value:</strong> Approved</p><p><strong>Reason:</strong> Document verification completed.</p></div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button></div></div></div></div>", 1))], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -792,23 +818,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "required fs-5 fw-bold mb-2"
   }, " سعر الوحدة", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-      return $data.form.address = $event;
+      return $data.form.amount = $event;
     }),
     "class": "form-control form-control-solid",
     type: "number"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.address]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.address.$errors, function (error) {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.amount]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.amount.$errors, function (error) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
       key: error.$uid,
       "class": "text-danger fw-light"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.msg(error)), 1 /* TEXT */)]);
   }), 128 /* KEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_code_select, {
-    sub_cd: $data.form.priority_cd,
+    sub_cd: $data.form.currency_cd,
     "onUpdate:sub_cd": _cache[5] || (_cache[5] = function ($event) {
-      return $data.form.priority_cd = $event;
+      return $data.form.currency_cd = $event;
     }),
     main_cd: 1,
     title: "العملة"
-  }, null, 8 /* PROPS */, ["sub_cd"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.address.$errors, function (error) {
+  }, null, 8 /* PROPS */, ["sub_cd"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.currency_cd.$errors, function (error) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
       key: error.$uid,
       "class": "text-danger fw-light"
@@ -817,11 +843,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "required fs-5 fw-bold mb-2"
   }, " سعر الصرف", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
-      return $data.form.address = $event;
+      return $data.form.exchange = $event;
     }),
     "class": "form-control form-control-solid",
     type: "number"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.address]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.address.$errors, function (error) {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.exchange]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form.exchange.$errors, function (error) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
       key: error.$uid,
       "class": "text-danger fw-light"
@@ -1011,11 +1037,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "required fs-5 fw-bold mb-2"
       }, " الكمية", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-          return $data.form_details.sname = $event;
+          return $data.form_details.amount = $event;
         }),
         "class": "form-control form-control-solid",
         type: "number"
-      }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form_details.sname]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.sname.$errors, function (error) {
+      }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form_details.amount]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.amount.$errors, function (error) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           key: error.$uid,
           "class": "text-danger fw-light"
@@ -1034,13 +1060,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "text-danger fw-light"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.msg(error)), 1 /* TEXT */)]);
       }), 128 /* KEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_code_select, {
-        sub_cd: $data.form_details.lname,
+        sub_cd: $data.form_details.currency_cd,
         "onUpdate:sub_cd": _cache[4] || (_cache[4] = function ($event) {
-          return $data.form_details.lname = $event;
+          return $data.form_details.currency_cd = $event;
         }),
         main_cd: 1,
         title: "العملة"
-      }, null, 8 /* PROPS */, ["sub_cd"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.lname.$errors, function (error) {
+      }, null, 8 /* PROPS */, ["sub_cd"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.currency_cd.$errors, function (error) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           key: error.$uid,
           "class": "text-danger fw-light"
@@ -1049,11 +1075,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "required fs-5 fw-bold mb-2"
       }, " سعر الصرف", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-          return $data.form_details.dob = $event;
+          return $data.form_details.exchange = $event;
         }),
         "class": "form-control form-control-solid",
         type: "number"
-      }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form_details.dob]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.dob.$errors, function (error) {
+      }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form_details.exchange]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.v$.form_details.exchange.$errors, function (error) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           key: error.$uid,
           "class": "text-danger fw-light"
@@ -1103,7 +1129,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["modelValue", "title", "onClosed"]), _cache[18] || (_cache[18] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Table container"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Table"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Table head"), _cache[17] || (_cache[17] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, " البند "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "الكمية "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "سعر الوحدة"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "العملة"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "سعر الصرف"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "المبلغ الكلي "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "ملاحظات "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th")])], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end::Table head"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Table body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.results, function (c) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.full_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.relationship.desc_ar), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.start_date), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.end_date), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.job_title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.job_title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.salary), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.full_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.desc_ar), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.start_date), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.end_date), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.job_title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.job_title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.salary), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       "class": "btn btn-primary",
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
         return $options.edit(c);

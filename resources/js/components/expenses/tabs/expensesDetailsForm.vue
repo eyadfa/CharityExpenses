@@ -30,8 +30,8 @@
 
                     <div class="col-md-4 fv-row">
                         <label class="required fs-5 fw-bold mb-2"> الكمية</label>
-                        <input v-model="form_details.sname" class="form-control form-control-solid" type="number"/>
-                        <span v-for="error of v$.form_details.sname.$errors"
+                        <input v-model="form_details.amount" class="form-control form-control-solid" type="number"/>
+                        <span v-for="error of v$.form_details.amount.$errors"
                               :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
@@ -46,8 +46,8 @@
                             </span>
                     </div>
                     <div class="col-md-4 fv-row">
-                        <code-select v-model:sub_cd="form_details.lname" :main_cd="1" title="العملة"/>
-                        <span v-for="error of v$.form_details.lname.$errors"
+                        <code-select v-model:sub_cd="form_details.currency_cd" :main_cd="1" title="العملة"/>
+                        <span v-for="error of v$.form_details.currency_cd.$errors"
                               :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
@@ -56,8 +56,8 @@
 
                     <div class="col-md-4 fv-row">
                         <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
-                        <input v-model="form_details.dob" class="form-control form-control-solid" type="number"/>
-                        <span v-for="error of v$.form_details.dob.$errors"
+                        <input v-model="form_details.exchange" class="form-control form-control-solid" type="number"/>
+                        <span v-for="error of v$.form_details.exchange.$errors"
                               :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
@@ -108,7 +108,7 @@
                     <tbody>
                     <tr v-for="c in results">
                         <td>{{ c.full_name }}</td>
-                        <td>{{ c.relationship.desc_ar }}</td>
+                        <td>{{ c.desc_ar }}</td>
                         <td>{{ c.start_date}}</td>
                         <td>{{ c.end_date}}</td>
                         <td>{{ c.job_title}}</td>
@@ -167,6 +167,9 @@ export default {
                 thname: {required},
                 lname: {required},
                 dob: {required},
+                currency_cd: {required},
+                exchange: {required},
+                amount: {required},
             }
         }
     },
@@ -175,7 +178,7 @@ export default {
         return {
             title: " تفاصيل الفاتورة",
             loading:false,
-            form_details:{},
+            form_details:{currency_cd:1, amount:1,exchange:1},
             api_url: "/api/expenses/details",
             is_edit: false,
             results: [],

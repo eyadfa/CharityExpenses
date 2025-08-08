@@ -61,15 +61,15 @@
 
                         <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
+                            <input v-model="form.amount" class="form-control form-control-solid" type="number"/>
+                            <span v-for="error of v$.form.amount.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
                         </div>
                         <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.priority_cd" :main_cd="1" title="العملة"/>
-                            <span v-for="error of v$.form.address.$errors"
+                            <code-select v-model:sub_cd="form.currency_cd" :main_cd="1" title="العملة"/>
+                            <span v-for="error of v$.form.currency_cd.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
@@ -78,8 +78,8 @@
 
                         <div class="col-md-4 fv-row">
                             <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
+                            <input v-model="form.exchange" class="form-control form-control-solid" type="number"/>
+                            <span v-for="error of v$.form.exchange.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
                                 <p>{{ msg(error) }}</p>
                             </span>
@@ -166,13 +166,16 @@ export default {
                 start_date: {required},
                 end_date: {required},
                 details: {required},
+                currency_cd: {required},
+                exchange: {required},
+                amount: {required},
             }
         }
     },
     data() {
         return {
             title: "البيانات الأساسية",
-            form: {},
+            form: {currency_cd:1,exchange: 1, amount:1},
             edit_route: "editAgenda",
             loading: false,
             api_url: "/api/agenda",

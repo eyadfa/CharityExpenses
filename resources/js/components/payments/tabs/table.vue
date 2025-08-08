@@ -93,18 +93,48 @@
                     <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_at" />
                     <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
                     <el-table-column fixed="right">
-                        <template #default="scope">
-                            <router-link v-show="can('agenda_edit')" :to="{name: 'editAgenda', params: { id: scope.row.id }}" class="btn btn-primary">
-                                <i class="far fa-edit"></i>
-                            </router-link>
 
-                            <button v-show="can('agenda_delete')" class="btn btn-danger" @click.prevent="_delete(scope.row.id)" >
-                                <i class="far fa-trash-alt"/>
-                            </button>
+                        <template #default="scope">
+                            <el-dropdown trigger="click">
+                            <span class="el-dropdown-link btn btn-secondary btn-icon">
+                               <i class="fas fa-cogs"></i>
+                            </span>
+                                <template #dropdown #default="scope">
+                                    <el-dropdown-menu>
+                                        <el-dropdown-item v-if="can('users_edit')"  >
+                                            <router-link :to="{name: 'viewExpenses', params: { id: scope.row.id }}" >
+                                                عرض
+                                            </router-link>
+                                        </el-dropdown-item>
+
+                                        <el-dropdown-item v-if="can('users_edit')"  >
+                                            <router-link :to="{name: 'editExpenses', params: { id: scope.row.id }}" >
+                                                تعديل
+                                            </router-link>
+                                        </el-dropdown-item>
+
+                                        <el-dropdown-item v-if="can('users_delete')">
+                                            <a  class="text-danger" @click="certify(scope.row.id)">
+                                                اعتماد
+                                            </a>
+                                        </el-dropdown-item>
+                                        <el-dropdown-item v-if="can('users_delete')">
+                                            <a  class="text-danger" @click="_delete(scope.row.id)">
+                                                حذف
+                                            </a>
+                                        </el-dropdown-item>
+                                        <el-dropdown-item v-if="can('users_permissions')">
+                                            <router-link :to="{name: 'movesExpenses', params: { id: scope.row.id }}" >
+                                                حركات التعديل
+                                            </router-link>
+                                        </el-dropdown-item>
+
+                                    </el-dropdown-menu>
+                                </template>
+                            </el-dropdown>
                         </template>
                     </el-table-column>
                 </el-table>
-
 
                 <div class="d-flex flex-center">
                     <el-pagination

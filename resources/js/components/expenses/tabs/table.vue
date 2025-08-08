@@ -93,29 +93,31 @@
                     <el-table-column align="right" label=" ملاحظات"  sortable prop="created_at" />
                     <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_by" />
                     <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
-                    <el-table-column fixed="right">
+                    <el-table-column >
 
-                        <el-dropdown trigger="click">
-                                <span class="el-dropdown-link btn btn-secondary btn-icon">
-                                   <i class="fas fa-cogs"></i>
-                                </span>
-                            <template #dropdown #default="z">
+                        <template #default="scope">
+                            <el-dropdown trigger="click">
+                            <span class="el-dropdown-link btn btn-secondary btn-icon">
+                               <i class="fas fa-cogs"></i>
+                            </span>
+                            <template #dropdown #default="scope">
                                 <el-dropdown-menu>
                                     <el-dropdown-item v-if="can('users_edit')"  >
-                                        <router-link :to="{name: '', params: { id: scope.row.id }}" >
+                                        <router-link :to="{name: 'viewExpenses', params: { id: scope.row.id }}" >
                                             عرض
                                         </router-link>
                                     </el-dropdown-item>
+
                                     <el-dropdown-item v-if="can('users_edit')"  >
-                                        <router-link :to="{name: 'editUser', params: { id: scope.row.id }}" >
+                                        <router-link :to="{name: 'editExpenses', params: { id: scope.row.id }}" >
                                             تعديل
                                         </router-link>
                                     </el-dropdown-item>
 
-                                    <el-dropdown-item v-if="can('users_edit')"  >
-                                        <router-link :to="{name: 'editUser', params: { id: scope.row.id }}" >
+                                    <el-dropdown-item v-if="can('users_delete')">
+                                        <a  class="text-danger" @click="certify(scope.row.id)">
                                             اعتماد
-                                        </router-link>
+                                        </a>
                                     </el-dropdown-item>
                                     <el-dropdown-item v-if="can('users_delete')">
                                         <a  class="text-danger" @click="_delete(scope.row.id)">
@@ -123,7 +125,7 @@
                                         </a>
                                     </el-dropdown-item>
                                     <el-dropdown-item v-if="can('users_permissions')">
-                                        <router-link :to="{name: 'userPermissions', params: { id: scope.row.id }}" >
+                                        <router-link :to="{name: 'movesExpenses', params: { id: scope.row.id }}" >
                                             حركات التعديل
                                         </router-link>
                                     </el-dropdown-item>
@@ -131,6 +133,7 @@
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
+                        </template>
                     </el-table-column>
                 </el-table>
 
@@ -156,6 +159,7 @@
 import shared from "../../../src/shared";
 import api from "../../../src/api";
 import ActionButtons from "../../_common/actionButtons";
+import {ElMessage, ElMessageBox} from "element-plus";
 export default {
     name: "agendaTable",
     components: {ActionButtons},
@@ -169,19 +173,20 @@ export default {
             loading:false,
             total: 0,
             currentPage:1,
-            results:[
-                {team:"فريق خانيونس", band:"تكية" , unit_price:5, quantity:2, currency:"شيكل",
-                exchange:1 ,total:10 ,srf_date:"05/08/2025",srf_way:"تطبيق", created_by:'محمد احمد', created_at:'06/08/2025' }
-            ],
+            results:[],
         }
     },
     created() {
         api.vw=this;
-      //  this.search();
+        this.search();
     },
     methods: {
         async search(next) {
             await api.search(next);
+            this.results=[
+                {id:1,team:"فريق خانيونس", band:"تكية" , unit_price:5, quantity:2, currency:"شيكل",
+                    exchange:1 ,total:10 ,srf_date:"05/08/2025",srf_way:"تطبيق", created_by:'محمد احمد', created_at:'06/08/2025' }
+            ];
         },
         async _delete(_id) {
             await api._delete(_id);
@@ -191,7 +196,27 @@ export default {
         },
         print(){
             shared.print("print_div")
-        }
+        },
+        certify(sanad_id){
+
+            ElMessageBox.prompt('في حالة اعتماد الفاتورة لا يمكنك التعديل عليه', 'اعتماد الفاتورة', {
+                confirmButtonText: 'اعتماد',
+                cancelButtonText: 'الغاء',
+                center:true,
+                type: 'warning',
+            })
+                .then(async ({value}) => {
+                    /*
+                    let res = await shared.certify(this.api_url , sanad_id,{sanad_id: sanad_id,notes:value});
+                    ElMessage({
+                        type: 'success',
+                        message: `تمت عملية الاعتماد بنجاح`,
+                    });
+                    await this.search();
+                    */
+                })
+        },
+
     },
 }
 </script>

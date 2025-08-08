@@ -43,7 +43,15 @@
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="fs-2 fw-bolder counted" >{{form.martyrdom_date}}</div>
+                                        <div class="fs-2 fw-bolder counted" >{{form.team}}</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400"> الفريق</div>
+                                </div>
+                                <!--end::Stat-->
+                                <!--begin::Stat-->
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="fs-2 fw-bolder counted" >{{form.bill_date}}</div>
                                     </div>
                                     <div class="fw-bold fs-6 text-gray-400">تاريخ الفاتورة</div>
                                 </div>
@@ -51,7 +59,7 @@
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="fs-2 fw-bolder counted">{{form.martyrdom_reason}}</div>
+                                        <div class="fs-2 fw-bolder counted">{{form.agent}}</div>
                                     </div>
                                     <div class="fw-bold fs-6 text-gray-400">الجهة المرتبطة</div>
                                 </div>
@@ -59,7 +67,7 @@
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="fs-2 fw-bolder counted">{{form.martyrdom_location}}</div>
+                                        <div class="fs-2 fw-bolder counted">{{form.band}}</div>
                                     </div>
                                     <div class="fw-bold fs-6 text-gray-400">بند المصروف</div>
                                 </div>
@@ -67,7 +75,7 @@
                                 <!--begin::Stat-->
                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="fs-2 fw-bolder counted">{{form.martyrdom_location}}</div>
+                                        <div class="fs-2 fw-bolder counted">{{form.total}}</div>
                                     </div>
                                     <div class="fw-bold fs-6 text-gray-400">المبلغ الاجمالي بالشيكل</div>
                                 </div>
@@ -138,10 +146,6 @@ export default {
             UploadFilledIcon: markRaw(UploadFilled),
             currentStep: 0,
             form:{nationality:{desc_ar:""}},
-            family:{},
-            family_id:0,
-            family_type_cd:1,
-            image_path:null
         };
     },
     computed: {
@@ -151,6 +155,7 @@ export default {
     },
     methods: {
         async nextStep() {
+            this.form={bill_date:"05/08/2025", agent:"مطبخ السعادة", team:"فريق خانيونس", band:"تكية", total:1250};
             this.currentStep++; // for MVP
             return; //for MVP
             if (this.currentStep < 2) {
