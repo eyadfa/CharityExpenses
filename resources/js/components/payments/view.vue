@@ -6,7 +6,7 @@
 
                 <div class="card-body">
                     <div class="container my-5">
-                        <h2 class="text-center mb-4">تفاصيل الفاتورة</h2>
+                        <h2 class="text-center mb-4">تفاصيل الدفعة</h2>
 
                         <div class="row">
                             <div v-for="c in form" class="border border-gray-300 border-dashed rounded col-md-3 py-3 px-4  mb-3">
@@ -17,19 +17,18 @@
                             </div>
                         </div>
                         <hr/>
-
+                        <h2 class="text-center mb-4"> الفواتير التي تمت تغطيتها في هذه الدفعة</h2>
                         <div class="table-responsive">
                             <!--begin::Table-->
                             <table id="departments_table" class="table table-row-dashed table-row-gray-300 table-striped gs-0 gy-4">
                                 <!--begin::Table head-->
                                 <thead>
                                 <tr>
-                                    <th> البند </th>
-                                    <th>الكمية </th>
-                                    <th>سعر الوحدة</th>
-                                    <th>العملة</th>
-                                    <th>سعر الصرف</th>
-                                    <th>المبلغ الكلي  </th>
+                                    <th> رقم الفاتورة </th>
+                                    <th> تاريخ الفاتورة </th>
+                                    <th>الجهة المرتبطة </th>
+                                    <th>مبلغ الفاتورة بالشيكل</th>
+                                    <th>المبلغ المدفوع</th>
                                     <th>ملاحظات  </th>
                                     <th></th>
                                 </tr>
@@ -37,24 +36,16 @@
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody>
-                                <tr v-for="c in results">
-                                    <td>{{ c.full_name }}</td>
-                                    <td>{{ c.desc_ar }}</td>
-                                    <td>{{ c.start_date}}</td>
-                                    <td>{{ c.end_date}}</td>
-                                    <td>{{ c.job_title}}</td>
-                                    <td>{{ c.job_title}}</td>
-                                    <td>{{ c.salary }}</td>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2025-08-06 14:30</td>
+                                    <td>مطبخ السعادة</td>
+                                    <td>1500</td>
+                                    <td>1500</td>
                                     <td>
-                                        <div class="btn-group" role="group">
-                                            <a v-show="canEdit" class="btn btn-primary" @click.prevent="edit(c)">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-
-                                            <button v-show="canDelete" class="btn btn-danger"  @click.prevent="_delete(c.id)">
-                                                <i class="far fa-trash-alt"/>
-                                            </button>
-                                        </div>
+                                        <router-link  class="btn btn-sm btn-primary":to="{name: 'viewExpenses', params: { id: 1 }}" >
+                                            <i class="bi bi-eye"></i> عرض
+                                        </router-link>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -75,26 +66,21 @@
 import shared from "../../src/shared";
 import api from "../../src/api";
 import CodeSelect from "../_common/codeSelect";
-import ExpensesBasicDataForm from "./tabs/basic_data";
-import ExpensesDetailsForm from "./tabs/expensesDetailsForm";
 
 export default {
-    name: "expensesView",
-    components: {ExpensesDetailsForm, ExpensesBasicDataForm, CodeSelect},
+    name: "paymentsView",
+    components: { CodeSelect},
     data() {
         return {
             title: " تفاصيل المصروف",
             form: [
                 {key:"الفريق", value:"فريق خانيونس"},
-                {key:"الجهة المرتبطة", value:"مطبخ السعادة"},
-                {key:"بند المصروف", value:"تكية"},
-                {key:"الكمية", value:"12"},
-                {key:"سعر الوحدة", value:"10"},
                 {key:"العملة", value:"شيكل"},
+                {key:"المبلغ", value:"150"},
                 {key:"سعر الصرف", value:"1"},
-                {key:"المبلغ الكلي", value:"120"},
-                {key:"تاريخ الصرف", value:"12/7/2025"},
-                {key:"نوع الصرف", value:"تطبيق"},
+                {key:"المبلغ الكلي", value:"150"},
+                {key:"تاريخ الدفع", value:"12/7/2025"},
+                {key:" طريقة الدفع", value:"تطبيق"},
                 {key:"حالة الاعتماد", value:"معتمد"},
                 {key:"تاريخ الاعتماد", value:"20/07/2025"},
                 {key:"ملاحظات", value:""},

@@ -6,7 +6,7 @@
 
                 <div class="card-body">
                     <div class="container mt-5">
-                        <h2 class="mb-4 text-center">حركات التعديل على سجل المدفوعات</h2>
+                        <h2 class="mb-4 text-center">حركات التعديل على سجل الفاتورة</h2>
 
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered bg-white">

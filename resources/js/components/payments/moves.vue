@@ -104,12 +104,10 @@ import {useVuelidate} from "@vuelidate/core";
 import {required} from "@vuelidate/validators";
 import CodeSelect from "../_common/codeSelect";
 import ValidationServerErrors from "../_common/ValidationServerErrors";
-import ExpensesBasicDataForm from "./tabs/basic_data";
-import ExpensesDetailsForm from "./tabs/expensesDetailsForm";
 
 export default {
-    name: "expensesMoves",
-    components: {ExpensesDetailsForm, ExpensesBasicDataForm, ValidationServerErrors, CodeSelect},
+    name: "paymentsMoves",
+    components: { ValidationServerErrors, CodeSelect},
     setup() {
         return {v$: useVuelidate()}
     },

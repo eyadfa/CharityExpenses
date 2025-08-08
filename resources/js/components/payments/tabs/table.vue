@@ -82,15 +82,15 @@
                     height="400"
                     style="width: 100%">
 
-                    <el-table-column align="right" label="الفريق" sortable  prop="name"  />
-                    <el-table-column align="right" label=" المبلغ" sortable  prop="priority.desc_ar" />
-                    <el-table-column align="right" label=" العملة" sortable  prop="start_date" />
-                    <el-table-column align="right" label="سعر الصرف"  sortable prop="end_date" />
-                    <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="end_date" />
-                    <el-table-column align="right" label="تاريخ الدفعة"  sortable prop="end_date" />
-                    <el-table-column align="right" label=" طريقة الصرف"  sortable prop="end_date" />
-                    <el-table-column align="right" label=" ملاحظات"  sortable prop="created_at" />
-                    <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_at" />
+                    <el-table-column align="right" label="الفريق" sortable  prop="team"  />
+                    <el-table-column align="right" label=" المبلغ" sortable  prop="amount" />
+                    <el-table-column align="right" label=" العملة" sortable  prop="currency" />
+                    <el-table-column align="right" label="سعر الصرف"  sortable prop="exchange" />
+                    <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="totol" />
+                    <el-table-column align="right" label="تاريخ الدفعة"  sortable prop="srf_date" />
+                    <el-table-column align="right" label=" طريقة الصرف"  sortable prop="srf_way" />
+                    <el-table-column align="right" label=" ملاحظات"  sortable prop="notes" />
+                    <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_by" />
                     <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
                     <el-table-column fixed="right">
 
@@ -102,13 +102,13 @@
                                 <template #dropdown #default="scope">
                                     <el-dropdown-menu>
                                         <el-dropdown-item v-if="can('users_edit')"  >
-                                            <router-link :to="{name: 'viewExpenses', params: { id: scope.row.id }}" >
+                                            <router-link :to="{name: 'viewPayments', params: { id: scope.row.id }}" >
                                                 عرض
                                             </router-link>
                                         </el-dropdown-item>
 
                                         <el-dropdown-item v-if="can('users_edit')"  >
-                                            <router-link :to="{name: 'editExpenses', params: { id: scope.row.id }}" >
+                                            <router-link :to="{name: 'editPayments', params: { id: scope.row.id }}" >
                                                 تعديل
                                             </router-link>
                                         </el-dropdown-item>
@@ -124,7 +124,7 @@
                                             </a>
                                         </el-dropdown-item>
                                         <el-dropdown-item v-if="can('users_permissions')">
-                                            <router-link :to="{name: 'movesExpenses', params: { id: scope.row.id }}" >
+                                            <router-link :to="{name: 'movesPayments', params: { id: scope.row.id }}" >
                                                 حركات التعديل
                                             </router-link>
                                         </el-dropdown-item>
@@ -157,6 +157,7 @@
 import shared from "../../../src/shared";
 import api from "../../../src/api";
 import ActionButtons from "../../_common/actionButtons";
+import {ElMessageBox} from "element-plus";
 export default {
     name: "agendaTable",
     components: {ActionButtons},
@@ -180,6 +181,10 @@ export default {
     methods: {
         async search(next) {
             await api.search(next);
+            this.results=[
+                {id:1,team:"فريق خانيونس", currency:"شيكل",
+                    exchange:1 ,total:10 ,srf_date:"05/08/2025",srf_way:"تطبيق", created_by:'محمد احمد', created_at:'06/08/2025' }
+            ];
         },
         async _delete(_id) {
             await api._delete(_id);
@@ -189,7 +194,26 @@ export default {
         },
         print(){
             shared.print("print_div")
-        }
+        },
+        certify(sanad_id){
+
+            ElMessageBox.prompt('في حالة اعتماد الفاتورة لا يمكنك التعديل عليه', 'اعتماد الفاتورة', {
+                confirmButtonText: 'اعتماد',
+                cancelButtonText: 'الغاء',
+                center:true,
+                type: 'warning',
+            })
+                .then(async ({value}) => {
+                    /*
+                    let res = await shared.certify(this.api_url , sanad_id,{sanad_id: sanad_id,notes:value});
+                    ElMessage({
+                        type: 'success',
+                        message: `تمت عملية الاعتماد بنجاح`,
+                    });
+                    await this.search();
+                    */
+                })
+        },
     },
 }
 </script>
