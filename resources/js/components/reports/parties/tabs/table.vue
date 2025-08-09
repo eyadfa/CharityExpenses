@@ -8,36 +8,56 @@
             </h3>
             <div class="card-toolbar col-12 d-block">
 
-                <div class="me-4 btn-group">
-                    <button :disabled="!can('agenda_search')" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                        <span class="fas fa-filter svg-icon-gray-500 me-1"></span>
-                        البحث
-                    </button>
-                    <div class="dropdown-menu w-450px w-md-500px" >
-                        <div class="separator border-gray-200"></div>
+
                         <form method="post" id="departments_search_form" >
                             <div class="px-7 py-5">
 
                                 <div class="row">
-                                    <div class="col-md-6 fv-row">
-                                        <label class=" fs-5 fw-bold mb-2">  عنوان البند</label>
-                                        <input v-model="form.name"  type="text" class="form-control form-control-solid"  />
+                                    <div class="col-md-4 fv-row">
+                                        <label class=" fs-5 fw-bold mb-2"> الفريق</label>
+                                        <el-select multiple v-model="form.name" filterable placeholder="اختر..." class="form-control" >
+                                            <el-option
+                                                v-for="item in teams"
+                                                :key="item.id"
+                                                :label="item.full_name"
+                                                :value="item"
+                                            />
+                                        </el-select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="option1" id="checkbox1" checked>
+                                            <label class="form-check-label" for="checkbox1">
+                                                المصروفات/الفواتير
+                                            </label>
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-6 fv-row">
-                                        <label class=" fs-5 fw-bold mb-2"> المكان</label>
-                                        <input v-model="form.address"  type="text" class="form-control form-control-solid"  />
+                                    <div class="col-md-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="option2" id="checkbox2" checked>
+                                            <label class="form-check-label" for="checkbox2">
+                                                المدفوعات
+                                            </label>
+                                        </div>
                                     </div>
 
 
-                                    <div class="col-md-6 fv-row">
-                                        <label class=" fs-5 fw-bold mb-2">تاريخ البداية من </label>
-                                        <input v-model="form.start_date__from" type="date" class="form-control form-control-solid"  />
+                                    <div class="col-md-2 fv-row">
+                                        <label class=" fs-5 fw-bold mb-2"> تاريخ الصرف - من </label>
+                                        <input v-model="form.start_date" class="form-control form-control-solid"
+                                               type="datetime-local"/>
                                     </div>
-                                    <div class="col-md-6 fv-row">
-                                        <label class="fs-5 fw-bold mb-2">تاريخ البداية إلى </label>
-                                        <input v-model="form.start_date__to"  type="date" class="form-control form-control-solid"  />
+
+                                    <div class="col-md-2 fv-row">
+                                        <label class=" fs-5 fw-bold mb-2"> تاريخ الصرف - إلى </label>
+                                        <input v-model="form.start_date" class="form-control form-control-solid"
+                                               type="datetime-local"/>
                                     </div>
+                                    <div class="col-md-4 fv-row">
+                                        <code-select :is_searchable="true" v-model:sub_cd="form.priority_cd" :main_cd="8" title="نوع الصرف"/>
+                                    </div>
+
 
                                 </div>
                                 <div class="d-flex justify-content-end">
@@ -46,12 +66,9 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
 
                 <action-buttons
-                    :add-url="add_url.path"
-                    :add-title="add_title"
+                    :show-add="false"
                     add-perms="agenda_add"
                     print-perms="agenda_print"
                     :print-action="print"
@@ -82,24 +99,14 @@
                     height="400"
                     style="width: 100%">
 
-                    <el-table-column align="right" label="البند" sortable  prop="name"  />
-                    <el-table-column align="right" label=" المكان"  sortable prop="address"   />
-                    <el-table-column align="right" label=" الأهمية" sortable  prop="priority.desc_ar" />
-                    <el-table-column align="right" label=" تاريخ البداية" sortable  prop="start_date" />
-                    <el-table-column align="right" label=" تاريخ النهاية "  sortable prop="end_date" />
+                    <el-table-column align="right" label="التاريخ" sortable  prop="date"  />
+                    <el-table-column align="right" label=" طريقة الدفع"  sortable prop="way"   />
+                    <el-table-column align="right" label="الجهة المرتبطة"  sortable prop="agent"   />
+                    <el-table-column align="right" label=" صادر/ شيكل" sortable  prop="in" />
+                    <el-table-column align="right" label=" وارد/ شيكل" sortable  prop="out" />
+                    <el-table-column align="right" label="ملاحظات" sortable  prop="notes" />
 
-                    <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
-                    <el-table-column fixed="right">
-                        <template #default="scope">
-                            <router-link v-show="can('agenda_edit')" :to="{name: 'editAgenda', params: { id: scope.row.id }}" class="btn btn-primary">
-                                <i class="far fa-edit"></i>
-                            </router-link>
 
-                            <button v-show="can('agenda_delete')" class="btn btn-danger" @click.prevent="_delete(scope.row.id)" >
-                                <i class="far fa-trash-alt"/>
-                            </button>
-                        </template>
-                    </el-table-column>
                 </el-table>
 
 
@@ -142,6 +149,16 @@ export default {
     created() {
         api.vw=this;
         this.search();
+        this.results=[
+            {date: '2025-08-01', way: 'نقداً', agent: 'أحمد صالح', in: '1500', out: '0', notes: 'دفعة مقدمة مستلمة'},
+            {date: '2025-08-02', way: 'تطبيق', agent: 'منى حسن', in: '0', out: '750', notes: 'إيجار المكتب'},
+            {date: '2025-08-03', way: 'تطبيق', agent: 'خالد عمر', in: '0', out: '320', notes: 'شراء قرطاسية'},
+            {date: '2025-08-04', way: 'نقداً', agent: 'سارة يونس', in: '2000', out: '0', notes: 'دفعة لمشروع عميل'},
+            {date: '2025-08-05', way: 'تطبيق', agent: 'يوسف علي', in: '0', out: '1200', notes: 'شراء معدات'},
+            {date: '2025-08-06', way: 'تطبيق', agent: 'هلا محمود', in: '0', out: '500', notes: 'مصاريف تسويق'},
+            {date: '2025-08-07', way: 'نقداً', agent: 'عمر فتحي', in: '800', out: '0', notes: 'دفعة جزئية مقابل خدمات'}
+        ];
+        this.total=7;
     },
     methods: {
         async search(next) {

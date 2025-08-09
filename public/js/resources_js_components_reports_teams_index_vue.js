@@ -182,6 +182,57 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   created: function created() {
     _src_api__WEBPACK_IMPORTED_MODULE_1__["default"].vw = this;
     this.search();
+    this.results = [{
+      date: '2025-08-01',
+      way: 'نقداً',
+      team: 'فريق خانيونس',
+      "in": '1500',
+      out: '0',
+      notes: 'دفعة مقدمة مستلمة'
+    }, {
+      date: '2025-08-02',
+      way: 'تطبيق',
+      team: ' فريق خانيونس',
+      "in": '0',
+      out: '750',
+      notes: 'إيجار المكتب'
+    }, {
+      date: '2025-08-03',
+      way: 'تطبيق',
+      team: 'فريق خانيونس',
+      "in": '0',
+      out: '320',
+      notes: 'شراء قرطاسية'
+    }, {
+      date: '2025-08-04',
+      way: 'نقداً',
+      team: 'فريق خانيونس',
+      "in": '2000',
+      out: '0',
+      notes: 'دفعة لمشروع عميل'
+    }, {
+      date: '2025-08-05',
+      way: 'تطبيق',
+      team: 'فريق خانيونس',
+      "in": '0',
+      out: '1200',
+      notes: 'شراء معدات'
+    }, {
+      date: '2025-08-06',
+      way: 'تطبيق',
+      team: 'فريق خانيونس',
+      "in": '0',
+      out: '500',
+      notes: 'مصاريف تسويق'
+    }, {
+      date: '2025-08-07',
+      way: 'نقداً',
+      team: 'فريق خانيونس',
+      "in": '800',
+      out: '0',
+      notes: 'دفعة جزئية مقابل خدمات'
+    }];
+    this.total = 7;
   },
   methods: {
     search: function search(next) {
@@ -407,109 +458,107 @@ var _hoisted_5 = {
   "class": "card-toolbar col-12 d-block"
 };
 var _hoisted_6 = {
-  "class": "me-4 btn-group"
-};
-var _hoisted_7 = ["disabled"];
-var _hoisted_8 = {
-  "class": "dropdown-menu w-450px w-md-500px"
-};
-var _hoisted_9 = {
   method: "post",
   id: "departments_search_form"
 };
-var _hoisted_10 = {
+var _hoisted_7 = {
   "class": "px-7 py-5"
 };
-var _hoisted_11 = {
+var _hoisted_8 = {
   "class": "row"
 };
+var _hoisted_9 = {
+  "class": "col-md-4 fv-row"
+};
+var _hoisted_10 = {
+  "class": "col-md-2 fv-row"
+};
+var _hoisted_11 = {
+  "class": "col-md-2 fv-row"
+};
 var _hoisted_12 = {
-  "class": "col-md-6 fv-row"
+  "class": "col-md-4 fv-row"
 };
 var _hoisted_13 = {
-  "class": "col-md-6 fv-row"
-};
-var _hoisted_14 = {
-  "class": "col-md-6 fv-row"
-};
-var _hoisted_15 = {
-  "class": "col-md-6 fv-row"
-};
-var _hoisted_16 = {
   "class": "d-flex justify-content-end"
 };
-var _hoisted_17 = {
+var _hoisted_14 = {
   "class": "card-body py-3"
 };
-var _hoisted_18 = {
+var _hoisted_15 = {
   "class": "flex flex-content-center"
 };
-var _hoisted_19 = {
+var _hoisted_16 = {
   "class": "col-md-10 d-flex justify-content-center"
 };
-var _hoisted_20 = {
+var _hoisted_17 = {
   "class": "bg-light-primary ps-5 pt-3 pe-5 border-dashed border border-primary rounded"
 };
-var _hoisted_21 = {
+var _hoisted_18 = {
   "class": "form-label fw-boldest"
 };
-var _hoisted_22 = {
+var _hoisted_19 = {
   id: "print_div",
   "class": "overflow-auto"
 };
-var _hoisted_23 = ["onClick"];
-var _hoisted_24 = {
+var _hoisted_20 = {
   "class": "d-flex flex-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_el_option = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-option");
+  var _component_el_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-select");
+  var _component_code_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("code-select");
   var _component_action_buttons = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("action-buttons");
   var _component_el_table_column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-table-column");
-  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   var _component_el_table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-table");
   var _component_el_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-pagination");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    disabled: !_ctx.can('agenda_search'),
-    "class": "btn btn-sm btn-flex btn-light btn-active-primary fw-bolder dropdown-toggle",
-    type: "button",
-    "data-bs-toggle": "dropdown",
-    "aria-expanded": "false"
-  }, _cache[6] || (_cache[6] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "fas fa-filter svg-icon-gray-500 me-1"
-  }, null, -1 /* HOISTED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" البحث ")]), 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "separator border-gray-200"
-  }, null, -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "fs-5 fw-bold mb-2"
-  }, " عنوان البند", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, " الفريق", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_select, {
+    multiple: "",
+    modelValue: $data.form.name,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.form.name = $event;
     }),
-    type: "text",
-    "class": "form-control form-control-solid"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    filterable: "",
+    placeholder: "اختر...",
+    "class": "form-control"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.teams, function (item) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_el_option, {
+          key: item.id,
+          label: item.full_name,
+          value: item
+        }, null, 8 /* PROPS */, ["label", "value"]);
+      }), 128 /* KEYED_FRAGMENT */))];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["modelValue"])]), _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-md-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"checkbox\" value=\"option1\" id=\"checkbox1\" checked><label class=\"form-check-label\" for=\"checkbox1\"> المصروفات/الفواتير </label></div></div><div class=\"col-md-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"checkbox\" value=\"option2\" id=\"checkbox2\" checked><label class=\"form-check-label\" for=\"checkbox2\"> المدفوعات </label></div></div>", 2)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "fs-5 fw-bold mb-2"
-  }, " المكان", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, " تاريخ الصرف - من ", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $data.form.address = $event;
+      return $data.form.start_date = $event;
     }),
-    type: "text",
-    "class": "form-control form-control-solid"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.address]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "class": "form-control form-control-solid",
+    type: "datetime-local"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_date]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "fs-5 fw-bold mb-2"
-  }, "تاريخ البداية من ", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, " تاريخ الصرف - إلى ", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $data.form.start_date__from = $event;
+      return $data.form.start_date = $event;
     }),
-    type: "date",
-    "class": "form-control form-control-solid"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_date__from]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "class": "fs-5 fw-bold mb-2"
-  }, "تاريخ البداية إلى ", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $data.form.start_date__to = $event;
+    "class": "form-control form-control-solid",
+    type: "datetime-local"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_date]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_code_select, {
+    is_searchable: true,
+    sub_cd: $data.form.priority_cd,
+    "onUpdate:sub_cd": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.priority_cd = $event;
     }),
-    type: "date",
-    "class": "form-control form-control-solid"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_date__to]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    main_cd: 8,
+    title: "نوع الصرف"
+  }, null, 8 /* PROPS */, ["sub_cd"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "reset",
     "class": "btn btn-sm btn-light btn-active-light-primary me-2",
     "data-kt-menu-dismiss": "true"
@@ -520,17 +569,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"])),
     "class": "btn btn-sm btn-primary",
     "data-kt-menu-dismiss": "true"
-  }, "بحث")])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_action_buttons, {
-    "add-url": _ctx.add_url.path,
-    "add-title": $data.add_title,
+  }, "بحث")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_action_buttons, {
+    "show-add": false,
     "add-perms": "agenda_add",
     "print-perms": "agenda_print",
     "print-action": $options.print,
     "export-to-excel-perms": "agenda_export_to_excel",
     "export-to-excel-action": $options.exportToExcel
-  }, null, 8 /* PROPS */, ["add-url", "add-title", "print-action", "export-to-excel-action"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_cache[13] || (_cache[13] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  }, null, 8 /* PROPS */, ["print-action", "export-to-excel-action"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end::Header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("begin::Body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "form-label fw-boldest"
-  }, " عدد السجلات :", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.total), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table, {
+  }, " عدد السجلات :", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.total), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table, {
     stripe: true,
     data: $data.results,
     height: "400",
@@ -541,67 +589,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: "البند",
+        label: "التاريخ",
         sortable: "",
-        prop: "name"
+        prop: "date"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: " المكان",
+        label: " طريقة الدفع",
         sortable: "",
-        prop: "address"
+        prop: "way"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: " الأهمية",
+        label: "الفريق",
         sortable: "",
-        prop: "priority.desc_ar"
+        prop: "team"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: " تاريخ البداية",
+        label: " صادر/ شيكل",
         sortable: "",
-        prop: "start_date"
+        prop: "in"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: " تاريخ النهاية ",
+        label: " وارد/ شيكل",
         sortable: "",
-        prop: "end_date"
+        prop: "out"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
         align: "right",
-        label: "تاريخ الاضافة",
+        label: "ملاحظات",
         sortable: "",
-        prop: "created_at"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_table_column, {
-        fixed: "right"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (scope) {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-            to: {
-              name: 'editAgenda',
-              params: {
-                id: scope.row.id
-              }
-            },
-            "class": "btn btn-primary"
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return _cache[14] || (_cache[14] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-                "class": "far fa-edit"
-              }, null, -1 /* HOISTED */)]);
-            }),
-            _: 2 /* DYNAMIC */
-          }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.can('agenda_edit')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-            "class": "btn btn-danger",
-            onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-              return $options._delete(scope.row.id);
-            }, ["prevent"])
-          }, _cache[15] || (_cache[15] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-            "class": "far fa-trash-alt"
-          }, null, -1 /* HOISTED */)]), 8 /* PROPS */, _hoisted_23), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.can('agenda_delete')]])];
-        }),
-        _: 1 /* STABLE */
+        prop: "notes"
       })];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["data"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_pagination, {
+  }, 8 /* PROPS */, ["data"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_el_pagination, {
     "page-size": 100,
     total: $data.total,
     style: {

@@ -124,8 +124,6 @@ export default {
                     {caption: " تقرير المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments"},
                     {caption: " تقرير الفرق", /*gate:["page_27"],*/ url: "/reports/teams"},
                     {caption: " تقرير الجهات المرتبطة", /*gate:["page_27"],*/ url: "/reports/parties"},
-                    {caption: " تقرير حركات المصروفات", /*gate:["page_27"],*/ url: "/reports/expenses/moves"},
-                    {caption: " تقرير حركات المدفوعات", /*gate:["page_27"],*/ url: "/reports/payments/moves"},
                 ]
             },
 

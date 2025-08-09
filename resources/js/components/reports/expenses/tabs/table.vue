@@ -11,7 +11,7 @@
                 <div class="row mb-5">
 
 
-                    <div class="col-md-5 fv-row">
+                    <div class="col-md-4 fv-row">
                         <label class=" fs-5 fw-bold mb-2"> الفريق</label>
                         <el-select multiple v-model="form.name" filterable placeholder="اختر..." class="form-control" >
                             <el-option
@@ -23,43 +23,59 @@
                         </el-select>
                     </div>
 
-                    <div class="col-md-2 fv-row">
-                        <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="بند المصروف"/>
+                    <div class="col-md-4 fv-row">
+                        <label class=" fs-5 fw-bold mb-2"> الجهةالمرتبطة</label>
+                        <el-select multiple v-model="form.name" filterable placeholder="اختر..." class="form-control" >
+                            <el-option
+                                v-for="item in teams"
+                                :key="item.id"
+                                :label="item.full_name"
+                                :value="item"
+                            />
+                        </el-select>
                     </div>
 
-                    <div class="col-md-5 fv-row">
+                    <div class="col-md-2 fv-row">
+                        <code-select :is_searchable="true" v-model:sub_cd="form.priority_cd" :main_cd="4" title="بند المصروف"/>
+                    </div>
+
+                    <div class="col-md-2 fv-row">
                         <label class=" fs-5 fw-bold mb-2"> الكمية</label>
                         <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                     </div>
 
-                    <div class="col-md-5 fv-row">
+                    <div class="col-md-2 fv-row">
                         <label class=" fs-5 fw-bold mb-2"> سعر الوحدة</label>
                         <input v-model="form.address" class="form-control form-control-solid" type="number"/>
                     </div>
-                    <div class="col-md-5 fv-row">
-                        <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="العملة"/>
+                    <div class="col-md-2 fv-row">
+                        <code-select :is_searchable="true" v-model:sub_cd="form.priority_cd" :main_cd="1" title="العملة"/>
                     </div>
 
-
-                    <div class="col-md-5 fv-row">
-                        <label class=" fs-5 fw-bold mb-2"> سعر الصرف</label>
-                        <input v-model="form.address" class="form-control form-control-solid" type="number"/>
+                    <div class="col-md-2 fv-row">
+                        <label class=" fs-5 fw-bold mb-2">المبلغ الاجمالي - من</label>
+                        <input  v-model="form.address" class="form-control form-control-solid" type="number"/>
                     </div>
-
-                    <div class="col-md-5 fv-row">
-                        <label class=" fs-5 fw-bold mb-2">المبلغ الكلي</label>
-                        <input disabled v-model="form.address" class="form-control form-control-solid" type="number"/>
-                    </div>
-
 
 
                     <div class="col-md-2 fv-row">
-                        <label class=" fs-5 fw-bold mb-2"> تاريخ الصرف </label>
+                        <label class=" fs-5 fw-bold mb-2">المبلغ الاجمالي - إلى</label>
+                        <input  v-model="form.address" class="form-control form-control-solid" type="number"/>
+                    </div>
+
+                    <div class="col-md-2 fv-row">
+                        <label class=" fs-5 fw-bold mb-2"> تاريخ الصرف - من </label>
                         <input v-model="form.start_date" class="form-control form-control-solid"
                                type="datetime-local"/>
                     </div>
-                    <div class="col-md-5 fv-row">
-                        <code-select v-model:sub_cd="form.priority_cd" :main_cd="113" title="نوع الصرف"/>
+
+                    <div class="col-md-2 fv-row">
+                        <label class=" fs-5 fw-bold mb-2"> تاريخ الصرف - إلى </label>
+                        <input v-model="form.start_date" class="form-control form-control-solid"
+                               type="datetime-local"/>
+                    </div>
+                    <div class="col-md-4 fv-row">
+                        <code-select :is_searchable="true" v-model:sub_cd="form.priority_cd" :main_cd="8" title="نوع الصرف"/>
                     </div>
 
                     <div class="col-md-4 fv-row">
@@ -69,6 +85,12 @@
 
                 </div>
 
+                <div class="d-flex flex-center">
+                    <button class="btn btn-primary" type="submit" @click.prevent="search()">
+                        <span class="indicator-label">بحث</span>
+                    </button>
+                    <button class="btn btn-light me-3" @click.prevent="$router.back()">تفريغ حقول البحث</button>
+                </div>
 
                 <action-buttons
                     :show-add="false"
@@ -77,8 +99,6 @@
                     export-to-excel-perms="agenda_export_to_excel"
                     :export-to-excel-action="exportToExcel"
                 />
-
-
 
             </div>
         </div>
@@ -101,24 +121,17 @@
                     height="400"
                     style="width: 100%">
 
-                    <el-table-column align="right" label="البند" sortable  prop="name"  />
-                    <el-table-column align="right" label=" المكان"  sortable prop="address"   />
-                    <el-table-column align="right" label=" الأهمية" sortable  prop="priority.desc_ar" />
-                    <el-table-column align="right" label=" تاريخ البداية" sortable  prop="start_date" />
-                    <el-table-column align="right" label=" تاريخ النهاية "  sortable prop="end_date" />
-
+                    <el-table-column align="right" label="الفريق" sortable  prop="team"  />
+                    <el-table-column align="right" label="بند المصروف" sortable  prop="band"  />
+                    <el-table-column align="right" label=" سعر الوحدة"  sortable prop="unit_price"   />
+                    <el-table-column align="right" label=" العملة" sortable  prop="currency" />
+                    <el-table-column align="right" label="سعر الصرف"  sortable prop="exchange" />
+                    <el-table-column align="right" label="المبلغ الاجمالي "  sortable prop="total" />
+                    <el-table-column align="right" label="تاريخ الصرف "  sortable prop="srf_date" />
+                    <el-table-column align="right" label=" طريقة الصرف"  sortable prop="srf_way" />
+                    <el-table-column align="right" label=" ملاحظات"  sortable prop="created_at" />
+                    <el-table-column align="right" label="تم الادخال بواسطة"  sortable prop="created_by" />
                     <el-table-column align="right" label="تاريخ الاضافة"  sortable prop="created_at" />
-                    <el-table-column fixed="right">
-                        <template #default="scope">
-                            <router-link v-show="can('agenda_edit')" :to="{name: 'editAgenda', params: { id: scope.row.id }}" class="btn btn-primary">
-                                <i class="far fa-edit"></i>
-                            </router-link>
-
-                            <button v-show="can('agenda_delete')" class="btn btn-danger" @click.prevent="_delete(scope.row.id)" >
-                                <i class="far fa-trash-alt"/>
-                            </button>
-                        </template>
-                    </el-table-column>
                 </el-table>
 
 
