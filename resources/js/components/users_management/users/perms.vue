@@ -123,6 +123,90 @@
             this.form = await shared.show(this.api_url, this.$route.params.id)
             this.permissions = this.form.permissions;
             this.roles = this.form.roles;
+            this.permissions=[
+                {
+                    "title": "المصروفات",
+                    "pages": [
+                        {
+                            "title": " المصروفات",
+                            "permissions": [
+                                { "id": 1, "caption": "بحث", "status": true },
+                                { "id": 1, "caption": "عرض", "status": true },
+                                { "id": 2, "caption": "إضافة", "status": false },
+                                { "id": 3, "caption": "تعديل", "status": false },
+                                { "id": 4, "caption": "حذف", "status": false },
+                                { "id": 5, "caption": "اعتماد", "status": false },
+                                { "id": 6, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 7, "caption": "طباعة", "status": false },
+                                { "id": 8, "caption": "عرض حركات التعديل", "status": false }
+                            ]
+                        },
+                        {
+                            "title": "استيراد المصروفات",
+                            "permissions": [
+                                { "id": 9, "caption": "استيراد المصروفات", "status": true },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "إدارة المدفوعات",
+                    "pages": [
+                        {
+                            "title": "المدفوعات ",
+                            "permissions": [
+                                { "id": 10, "caption": "بحث", "status": true },
+                                { "id": 11, "caption": "عرض", "status": true },
+                                { "id": 12, "caption": "إضافة", "status": false },
+                                { "id": 13, "caption": "تعديل", "status": false },
+                                { "id": 14, "caption": "حذف", "status": false },
+                                { "id": 15, "caption": "اعتماد", "status": false },
+                                { "id": 16, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 17, "caption": "طباعة", "status": false },
+                                { "id": 18, "caption": "عرض حركات التعديل", "status": false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "التقارير",
+                    "pages": [
+                        {
+                            "title": "تقرير المصروفات ",
+                            "permissions": [
+                                { "id": 19, "caption": "بحث", "status": true },
+                                { "id": 20, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 21, "caption": "طباعة", "status": false },
+                            ]
+                        },
+                        {
+                            "title": "تقرير المدفوعات ",
+                            "permissions": [
+                                { "id": 22, "caption": "بحث", "status": true },
+                                { "id": 23, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 24, "caption": "طباعة", "status": false },
+                            ]
+                        },
+                        {
+                            "title": "تقرير الفرق ",
+                            "permissions": [
+                                { "id": 25, "caption": "بحث", "status": true },
+                                { "id": 26, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 27, "caption": "طباعة", "status": false },
+                            ]
+                        },
+                        {
+                            "title": "تقرير الجهات المرتبطة ",
+                            "permissions": [
+                                { "id": 28, "caption": "بحث", "status": true },
+                                { "id": 29, "caption": "تصدير لاكسل", "status": false },
+                                { "id": 30, "caption": "طباعة", "status": false },
+                            ]
+                        }
+                    ]
+                }
+            ]
+
 
         },
         methods: {
