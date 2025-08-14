@@ -244,6 +244,9 @@ var _hoisted_15 = {
   "class": "col-md-4 fv-row"
 };
 var _hoisted_16 = {
+  "class": "col-md-8 fv-row"
+};
+var _hoisted_17 = {
   "class": "d-flex flex-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -251,6 +254,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_el_option = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-option");
   var _component_el_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("el-select");
   var _component_code_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("code-select");
+  var _component_file_upload = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("file-upload");
   var _directive_loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("loading");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_validation_server_errors, {
     errors: $data.errors
@@ -365,13 +369,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "class": "form-control form-control-solid",
     rows: "3"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.notes]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.notes]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_cache[16] || (_cache[16] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "class": "fs-5 fw-bold mb-2"
+  }, " صورة الفاتورة", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_file_upload)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "btn btn-primary",
     type: "submit",
     onClick: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.submit();
     }, ["prevent"]))
-  }, _cache[16] || (_cache[16] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, _cache[17] || (_cache[17] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "indicator-label"
   }, "حفظ", -1 /* HOISTED */)])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "btn btn-light me-3",
@@ -955,23 +961,19 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   }(),
   deactivate: function () {
     var _deactivate = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee13(item_id) {
-      var form;
       return _regeneratorRuntime().wrap(function _callee13$(_context13) {
         while (1) switch (_context13.prev = _context13.next) {
           case 0:
             //
             this.vw.loading = true;
-            form = {
-              is_active: 0
-            };
-            _context13.next = 4;
-            return this.activation(item_id, 0);
-          case 4:
-            _context13.next = 6;
+            _context13.next = 3;
+            return this.activation(item_id, 2);
+          case 3:
+            _context13.next = 5;
             return this.vw.search();
-          case 6:
+          case 5:
             this.vw.loading = false;
-          case 7:
+          case 6:
           case "end":
             return _context13.stop();
         }
@@ -990,7 +992,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           case 0:
             form = {
               id: item_id,
-              is_active: is_active
+              status_cd: is_active
             };
             res = null;
             _context14.prev = 2;

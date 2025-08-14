@@ -19,13 +19,17 @@
                                 </span>
                             </div>
                             <div class="col-md-4 fv-row">
-                                <code-select v-model:sub_cd="form.priority_cd" :main_cd="4" title="نوع النشاط "/>
+                                <code-select v-model:sub_cd="form.activity_cd" :main_cd="4" title="نوع النشاط "/>
+                                <span v-for="error of v$.form.activity_cd.$errors" :key="error.$uid"
+                                      class="text-danger fw-light">
+                                    <p>{{ msg(error) }}</p>
+                                </span>
                             </div>
 
                             <div class="col-md-4 fv-row">
                                 <label class="required fs-5 fw-bold mb-2">رقم جوال للتواصل</label>
-                                <input v-model="form.iso" class="form-control form-control-solid" type="text"/>
-                                <span v-for="error of v$.form.iso.$errors" :key="error.$uid"
+                                <input v-model="form.mobile" class="form-control form-control-solid" type="text"/>
+                                <span v-for="error of v$.form.mobile.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
                                     <p>{{ msg(error) }}</p>
                                 </span>
@@ -33,15 +37,23 @@
 
                             <div class="col-md-4 fv-row">
                                 <label class="required fs-5 fw-bold mb-2">اسم المدير</label>
-                                <input v-model="form.iso3" class="form-control form-control-solid" type="text"/>
-                                <span v-for="error of v$.form.iso3.$errors" :key="error.$uid"
+                                <input v-model="form.manager_name" class="form-control form-control-solid" type="text"/>
+                                <span v-for="error of v$.form.manager_name.$errors" :key="error.$uid"
                                       class="text-danger fw-light">
                                     <p>{{ msg(error) }}</p>
                                 </span>
                             </div>
 
                             <div class="col-md-4 fv-row">
-                                <code-select v-model:sub_cd="form.priority_cd" :main_cd="6" title="الحالة"/>
+                                <code-select v-model:sub_cd="form.status_cd" :main_cd="6" title="الحالة"/>
+                                <span v-for="error of v$.form.status_cd.$errors" :key="error.$uid"
+                                      class="text-danger fw-light">
+                                    <p>{{ msg(error) }}</p>
+                                </span>
+                            </div>
+                            <div class="col-md-4 fv-row">
+                                <label class="fs-5 fw-bold mb-2">ملاحظات</label>
+                                <textarea v-model="form.notes" class="form-control form-control-solid" />
                             </div>
                         </div>
                         <div class="d-flex flex-center">
@@ -85,7 +97,7 @@ export default {
     data() {
         return {
             title: "جهة مرتبطة جديدة",
-            form: {is_active: true},
+            form: {status_cd: 1,activity_cd:1 },
             api_url:"/api/parties",
             edit_route:"editParty",
             errors:[],
@@ -96,9 +108,10 @@ export default {
         return {
             form: {
                 name: {required},
-                iso: {required, min: minLength(2), max: maxLength(2)},
-                iso3: {required, min: minLength(3), max: maxLength(3)},
-                phone_code: {required}
+                mobile: {required, min: minLength(10), max: maxLength(15)},
+                manager_name: {required},
+                activity_cd: {required},
+                status_cd: {required},
             }
         }
     },

@@ -24,7 +24,7 @@
     {"controller_id":"1","page_id":"1","MAIN_CD":"6","SUB_CD":"0","ARB_DESC":"الحالة","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
     {"controller_id":"1","page_id":"1","MAIN_CD":"6","SUB_CD":"1","ARB_DESC":"فعال","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
     {"controller_id":"1","page_id":"1","MAIN_CD":"6","SUB_CD":"2","ARB_DESC":"غير فعال","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
-    {"controller_id":"1","page_id":"1","MAIN_CD":"7","SUB_CD":"0","ARB_DESC":"حالة الاعتماج","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
+    {"controller_id":"1","page_id":"1","MAIN_CD":"7","SUB_CD":"0","ARB_DESC":"حالة الاعتماد","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
     {"controller_id":"1","page_id":"1","MAIN_CD":"7","SUB_CD":"1","ARB_DESC":"معتمد","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
     {"controller_id":"1","page_id":"1","MAIN_CD":"7","SUB_CD":"2","ARB_DESC":"غير معتمد","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},
     {"controller_id":"1","page_id":"1","MAIN_CD":"8","SUB_CD":"0","ARB_DESC":"نوع الصرف","ENG_DESC":null,"CONST_VALUE":"0","PARENT_CD":null,"IS_ACTIVE":"1"},

@@ -83,49 +83,6 @@ export const routes = [
         }
     },
 
-
-    ////////////////////////////////////////////
-    {
-        name: 'controllers',
-        path: '/controllers',
-        component: () => import("../components/settings/controllers"),
-        meta: {
-            gate: ["page_4"]
-        }
-    },
-    {
-        name: 'editController',
-        path: '/controllers/edit/:id',
-        component: () => import("../components/settings/controllers/form"),
-        meta: {
-            gate: ["controllers_edit"]
-        }
-    },
-/////////////////////////////////////////
-    {
-        name: 'functions',
-        path: '/functions',
-        component: () =>  import("../components/settings/functions"),
-        meta: {
-            gate: ["page_5"]
-        }
-    },
-    {
-        name: 'addFunction',
-        path: '/functions/add',
-        component: () =>  import("../components/settings/functions/form"),
-        meta: {
-            gate: ["functions_add"]
-        }
-    },
-    {
-        name: 'editFunction',
-        path: '/functions/edit/:id',
-        component: () =>  import("../components/settings/functions/form"),
-        meta: {
-            gate: ["functions_edit"]
-        }
-    },
 /////////////////////////////////////////
     {
         name: 'permissions',

@@ -97,8 +97,6 @@ export default {
                 caption: "الاعدادات",depts:[0], /*gate:["controller_2"],*/ icon:"fas fa-cogs", url: "/settings", "functions": [
                     {caption: "ثوابت النظام", url: "/codes"/*, gate: ["page_2"]*/},
                     {caption: "اعدادات النظام", url: "/settings" /*, gate: ["page_3"]*/},
-                    {caption: "النماذج الرئيسية", url: "/controllers" /*, gate: ["page_4"]*/},
-                    {caption: "الروابط الفرعية", url: "/functions"/* , gate: ["page_5"]*/},
                     {caption: "الجهات المرتبطة", url: "/parties" /* , gate: ["page_7"]*/},
                     {caption: "فرق العمل", url: "/teams" /* , gate: ["page_7"]*/},
                 ]

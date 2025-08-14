@@ -63,6 +63,15 @@ trait ResponseTrait {
         $this->total= $data["total"];
         return $this->getResponse();
     }
+    public function customResponseDataPageWithResource($datax = [],$resourceClass, $message = "", $code = 200, $status = true) {
+        $data = $datax->toArray();
+        $this->code = $code;
+        $this->message = $message;
+        $this->data = $resourceClass::collection($datax);
+        $this->status = $status;
+        $this->total= $data["total"];
+        return $this->getResponse();
+    }
 
     public function getResponse() {
         $arr = [

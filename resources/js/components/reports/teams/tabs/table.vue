@@ -100,8 +100,9 @@
                     <el-table-column align="right" label="التاريخ" sortable  prop="date"  />
                     <el-table-column align="right" label=" طريقة الدفع"  sortable prop="way"   />
                     <el-table-column align="right" label="الفريق"  sortable prop="team"   />
-                    <el-table-column align="right" label=" صادر/ شيكل" sortable  prop="in" />
-                    <el-table-column align="right" label=" وارد/ شيكل" sortable  prop="out" />
+                    <el-table-column align="right" label=" مصروفات/ شيكل" sortable  prop="in" />
+                    <el-table-column align="right" label=" دفعات/ شيكل" sortable  prop="out" />
+                    <el-table-column align="right" label="بند المصروف" sortable  prop="notes" />
                     <el-table-column align="right" label="ملاحظات" sortable  prop="notes" />
 
                 </el-table>

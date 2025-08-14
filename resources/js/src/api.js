@@ -263,14 +263,13 @@ export default {
 
     deactivate: async function (item_id) {//
         this.vw.loading = true;
-        let form = {is_active: 0};
-        await this.activation(item_id, 0)
+        await this.activation(item_id, 2)
         await this.vw.search();
         this.vw.loading = false;
     },
 
     activation: async function (item_id, is_active) {
-        let form = {id: item_id, is_active: is_active};
+        let form = {id: item_id, status_cd: is_active};
         let res = null;
 
         try {

@@ -9,6 +9,7 @@ use App\Http\Controllers\API\Management\NotificationsController;
 use App\Http\Controllers\API\Management\PermissionsController;
 use App\Http\Controllers\API\Management\RolesController;
 use App\Http\Controllers\API\Management\UsersController;
+use App\Http\Controllers\API\PartiesController;
 use App\Http\Controllers\API\sec\Followup\FollowUpController;
 use App\Http\Controllers\API\sec\Followup\FollowupsAttachmentsController;
 use App\Http\Controllers\API\sec\Tasks\TasksAttachmentsController;
@@ -227,6 +228,17 @@ Route::middleware("auth:sanctum")->group(function () {
             Route::post('/update/{id}', 'update');
             Route::delete('/{id}', 'destroy');
         });
-
+////////////////////////////
+///
+    Route::controller(PartiesController::class)
+        ->prefix("parties")->group(function () {
+            Route::post("/", "store");
+            Route::post('/search', 'index');
+            Route::post('/activation', 'activation');
+            Route::post('/export', 'export');
+            Route::get('/show/{id}', 'show');
+            Route::post('/update/{id}', 'update');
+            Route::delete('/{id}', 'destroy');
+        });
 
 });

@@ -83,6 +83,10 @@
                             <label class="fs-5 fw-bold mb-2"> ملاحظات</label>
                             <textarea v-model="form.notes" class="form-control form-control-solid" rows="3"></textarea>
                         </div>
+                        <div class="col-md-8 fv-row">
+                            <label class="fs-5 fw-bold mb-2"> صورة الفاتورة</label>
+                            <file-upload ></file-upload>
+                        </div>
 
                     </div>
 

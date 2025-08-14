@@ -1010,23 +1010,19 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   }(),
   deactivate: function () {
     var _deactivate = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee13(item_id) {
-      var form;
       return _regeneratorRuntime().wrap(function _callee13$(_context13) {
         while (1) switch (_context13.prev = _context13.next) {
           case 0:
             //
             this.vw.loading = true;
-            form = {
-              is_active: 0
-            };
-            _context13.next = 4;
-            return this.activation(item_id, 0);
-          case 4:
-            _context13.next = 6;
+            _context13.next = 3;
+            return this.activation(item_id, 2);
+          case 3:
+            _context13.next = 5;
             return this.vw.search();
-          case 6:
+          case 5:
             this.vw.loading = false;
-          case 7:
+          case 6:
           case "end":
             return _context13.stop();
         }
@@ -1045,7 +1041,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           case 0:
             form = {
               id: item_id,
-              is_active: is_active
+              status_cd: is_active
             };
             res = null;
             _context14.prev = 2;

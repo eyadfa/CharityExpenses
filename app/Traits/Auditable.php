@@ -23,12 +23,12 @@ trait Auditable
                 if (!empty($changes)) {
                     // Check for changes in the `is_active` attribute
                     if (array_key_exists('is_active', $changes)) {
-                        $oldIsActive = $original['is_active'] ?? null;
-                        $newIsActive = $changes['is_active'];
+                        $oldIsActive = $original['status_cd'] ?? null;
+                        $newIsActive = $changes['status_cd'];
 
                         if ($oldIsActive !== $newIsActive) {
                             // Log activation or deactivation
-                            $event = $newIsActive ? 'activated' : 'deactivated';
+                            $event = $newIsActive ==1 ? 'activated' : 'deactivated';
                             $model->logEvent($event);
                         }
                     }

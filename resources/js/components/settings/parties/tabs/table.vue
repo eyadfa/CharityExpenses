@@ -22,37 +22,32 @@
                             <div class="px-7 py-5">
                                 <div class="row">
                                     <div class="mb-10 col-md-6">
-                                        <label class="form-label fw-bold"> اسم الدولة:</label>
+                                        <label class="form-label fw-bold"> اسم الجهة:</label>
                                         <input type="text" v-model="form.name"
                                             class="form-control form-control-solid" />
                                     </div>
 
                                     <div class="mb-10 col-md-6">
-                                        <label class="form-label fw-bold"> ISO:</label>
-                                        <input type="text" v-model="form.iso"
+                                        <label class="form-label fw-bold"> اسم المدير:</label>
+                                        <input type="text" v-model="form.manager_name"
                                             class="form-control form-control-solid" />
                                     </div>
 
                                     <div class="mb-10 col-md-6">
-                                        <label class="form-label fw-bold"> ISO3:</label>
-                                        <input type="text" v-model="form.iso3"
+                                        <label class="form-label fw-bold"> رقم جوال للتواصل:</label>
+                                        <input type="text" v-model="form.mobile"
                                             class="form-control form-control-solid" />
                                     </div>
 
                                     <div class="mb-10 col-md-6">
-                                        <label class="form-label fw-bold"> كود الاتصال:</label>
-                                        <input type="text" v-model="form.phone_code"
-                                            class="form-control form-control-solid" />
+                                        <code-select :is_searchable="true" :is_required="false"
+                                                     v-model:sub_cd="form.activity_cd" :main_cd="4" title="نوع النشاط "/>
                                     </div>
 
 
                                     <div class="mb-10 col-md-6">
-                                        <label class="form-label fw-bold">الحالة :</label>
-                                        <select v-model="form.is_active" class="form-select form-select-solid">
-                                            <option value="-1">الكل</option>
-                                            <option value="0">غير فعال</option>
-                                            <option value="1">فعال</option>
-                                        </select>
+                                        <code-select :is_searchable="true" :is_required="false"
+                                                     v-model:sub_cd="form.status_cd" :main_cd="6" title="الحالة"/>
                                     </div>
 
 
@@ -75,6 +70,8 @@
                     :add-url="add_url.path"
                     :add-title="add_title"
                     add-perms="countries_add"
+                    :export-to-excel-action="exportToExcel"
+                    :print-action="print"
                 />
 
             </div>
@@ -92,23 +89,23 @@
                 </div>
             </div>
 
-            <div class="overflow-auto">
-                <el-table :data="results" height="500" :stripe="true" style="width: 100%">
+            <div class="overflow-auto" >
+                <el-table :data="results" height="500" id="print_div" :stripe="true" style="width: 100%">
                     <el-table-column label="اسم المؤسسة" prop="name" />
-                    <el-table-column label="اسم المدير" prop="iso" />
-                    <el-table-column label="رقم جوال للتواصل" prop="iso3" />
-                    <el-table-column label="نوع النشاط" prop="nickname" />
+                    <el-table-column label="اسم المدير" prop="manager_name" />
+                    <el-table-column label="رقم جوال للتواصل" prop="mobile" />
+                    <el-table-column label="نوع النشاط" prop="activity" />
                     <el-table-column label=" الحالة" >
                         <template #default="scope">
-                            <el-button :disabled="!can('countries_activation')" v-if="scope.row.is_active ==1" @click.prevent="_deactivate(scope.row.id)" type="success">فعال</el-button>
-                            <el-button :disabled="!can('countries_activation')" v-else @click.prevent="_activate(scope.row.id)" type="danger">غير فعال</el-button>
+                            <el-button :disabled="!can('parties_activation')" v-if="scope.row.status_cd ==1" @click.prevent="_deactivate(scope.row.id)" type="success">فعال</el-button>
+                            <el-button :disabled="!can('parties_activation')" v-else @click.prevent="_activate(scope.row.id)" type="danger">غير فعال</el-button>
                         </template>
                     </el-table-column>
                     <el-table-column label=" تاريخ الاضافة" prop="created_at" />
                     <el-table-column fixed="right" label="Operations" >
                         <template #default="scope">
                             <div class="btn-group" role="group">
-                                <router-link v-show="can('countries_edit')" :to="{name: 'editCountry', params: { id: scope.row.id }}"
+                                <router-link v-show="can('parties_edit')" :to="{name: 'editParty', params: { id: scope.row.id }}"
                                              class="btn btn-primary">
                                     <i class="far fa-edit"></i>
                                 </router-link>
@@ -146,7 +143,7 @@ export default {
             title: 'ادارة بيانات الجهات المرتبطة',
             add_title: 'جهة مرتبطة جديدة',
             add_url: this.$router.resolve({ name: 'addParty' }),
-            form: {},
+            form: {status_cd:-1, activity_cd:-1},
             results:[],
             api_url:"/api/parties",
             currentPage: 1,
@@ -169,6 +166,12 @@ export default {
         async search(next) {
             await api.search(next);
         },
+        exportToExcel(){
+            api.exportToExcel()
+        },
+        print(){
+            shared.print("print_div")
+        }
     },
 }
 </script>

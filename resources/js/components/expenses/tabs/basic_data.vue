@@ -50,43 +50,9 @@
                                     </span>
                         </div>
 
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> الكمية</label>
-                            <input v-model="form.address" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.address.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
 
                         <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الوحدة</label>
-                            <input v-model="form.amount" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.amount.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <code-select v-model:sub_cd="form.currency_cd" :main_cd="1" title="العملة"/>
-                            <span v-for="error of v$.form.currency_cd.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2"> سعر الصرف</label>
-                            <input v-model="form.exchange" class="form-control form-control-solid" type="number"/>
-                            <span v-for="error of v$.form.exchange.$errors"
-                                  :key="error.$uid" class="text-danger fw-light">
-                                <p>{{ msg(error) }}</p>
-                            </span>
-                        </div>
-
-                        <div class="col-md-4 fv-row">
-                            <label class="required fs-5 fw-bold mb-2">المبلغ الكلي</label>
+                            <label class="required fs-5 fw-bold mb-2">المبلغ الاجمالي بالشيكل</label>
                             <input disabled v-model="form.address" class="form-control form-control-solid" type="number"/>
                             <span v-for="error of v$.form.address.$errors"
                                   :key="error.$uid" class="text-danger fw-light">
@@ -113,9 +79,14 @@
                             </span>
                         </div>
 
+
                         <div class="col-md-8 fv-row">
                             <label class="fs-5 fw-bold mb-2"> ملاحظات</label>
                             <textarea v-model="form.notes" class="form-control form-control-solid" rows="3"></textarea>
+                        </div>
+                        <div class="col-md-8 fv-row">
+                            <label class="fs-5 fw-bold mb-2"> الفاتورة</label>
+                            <file-upload ></file-upload>
                         </div>
                     </div>
 
@@ -141,10 +112,11 @@ import {useVuelidate} from "@vuelidate/core";
 import {required} from "@vuelidate/validators";
 import CodeSelect from "../../_common/codeSelect";
 import ValidationServerErrors from "../../_common/ValidationServerErrors";
+import FileUpload from "../../_common/FileUpload";
 
 export default {
     name: "expensesBasicDataForm",
-    components: {ValidationServerErrors, CodeSelect},
+    components: {FileUpload, ValidationServerErrors, CodeSelect},
     props: {
         wizard:{
             type:Boolean,
